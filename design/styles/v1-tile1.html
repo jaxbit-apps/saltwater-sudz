@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saltwater Sudz — Style Tile: Tidewater Clean</title>
+
+  <!-- Google Fonts: Outfit (headings) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400;1,9..40,500&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       CSS CUSTOM PROPERTIES — LIGHT + DARK MODES
+       ========================================================= */
+    :root {
+      /* Brand constants (don't change between modes) */
+      --color-navy: #0B1D3B;
+      --color-electric-blue: #0019FF;
+      --color-electric-blue-hover: #0014CC;
+      --color-electric-blue-light: #5A7FFF;
+
+      /* Typography */
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --type-scale: 1.333;
+      --body-size: 17px;
+      --line-height: 1.65;
+
+      /* Spacing */
+      --space-unit: 1rem;
+      --space-xs: 0.5rem;
+      --space-sm: 0.75rem;
+      --space-md: 1.5rem;
+      --space-lg: 3rem;
+      --space-xl: 5rem;
+      --space-2xl: 7rem;
+      --section-gap: 6rem;
+
+      /* Surfaces */
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+
+      /* Transitions */
+      --transition-fast: 0.2s ease;
+      --transition-base: 0.35s ease;
+      --transition-slow: 0.6s ease;
+    }
+
+    /* Light mode (default) */
+    [data-theme="light"] {
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F5F7FA;
+      --bg-hero: #0B1D3B;
+      --text-primary: #1A1A2E;
+      --text-heading: #0B1D3B;
+      --text-muted: #5C6573;
+      --text-on-dark: #FFFFFF;
+      --text-on-hero: #E8ECF1;
+      --surface-card: #FFFFFF;
+      --surface-card-border: #E2E8F0;
+      --accent: #0019FF;
+      --accent-hover: #0014CC;
+      --accent-text: #0019FF;
+      --outline-btn-border: #0B1D3B;
+      --outline-btn-text: #0B1D3B;
+      --outline-btn-hover-bg: #0B1D3B;
+      --outline-btn-hover-text: #FFFFFF;
+      --rule-color: #D1D8E0;
+      --swatch-border: rgba(0, 0, 0, 0.08);
+      --wave-fill: #F5F7FA;
+      --card-shadow: 0 1px 3px rgba(11, 29, 59, 0.06), 0 4px 16px rgba(11, 29, 59, 0.04);
+      --card-shadow-hover: 0 4px 12px rgba(11, 29, 59, 0.1), 0 8px 32px rgba(11, 29, 59, 0.06);
+      --embellish-opacity: 0.06;
+      --grain-opacity: 0.03;
+    }
+
+    /* Dark mode */
+    [data-theme="dark"] {
+      --bg-primary: #0B1D3B;
+      --bg-secondary: #0F2444;
+      --bg-hero: #060E1F;
+      --text-primary: #E8ECF1;
+      --text-heading: #FFFFFF;
+      --text-muted: #94A3B8;
+      --text-on-dark: #FFFFFF;
+      --text-on-hero: #E8ECF1;
+      --surface-card: #142847;
+      --surface-card-border: #1E3A5F;
+      --accent: #5A7FFF;
+      --accent-hover: #4169FF;
+      --accent-text: #5A7FFF;
+      --outline-btn-border: #5A7FFF;
+      --outline-btn-text: #5A7FFF;
+      --outline-btn-hover-bg: #5A7FFF;
+      --outline-btn-hover-text: #0B1D3B;
+      --rule-color: #1E3A5F;
+      --swatch-border: rgba(255, 255, 255, 0.1);
+      --wave-fill: #0F2444;
+      --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 4px 16px rgba(0, 0, 0, 0.15);
+      --card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.3), 0 8px 32px rgba(0, 0, 0, 0.2);
+      --embellish-opacity: 0.08;
+      --grain-opacity: 0.04;
+    }
+
+    /* =========================================================
+       RESET & BASE
+       ========================================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: var(--body-size);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: var(--line-height);
+      color: var(--text-primary);
+      background-color: var(--bg-primary);
+      transition: background-color var(--transition-base), color var(--transition-base);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.15;
+      text-wrap: balance;
+      transition: color var(--transition-base);
+    }
+
+    p {
+      text-wrap: pretty;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--accent-text);
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 3px;
+      transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+    }
+
+    /* =========================================================
+       LAYOUT UTILITIES
+       ========================================================= */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    .section {
+      padding: var(--space-xl) 0;
+    }
+
+    .section--alt {
+      background-color: var(--bg-secondary);
+      transition: background-color var(--transition-base);
+    }
+
+    .section__label {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-xs);
+      border-bottom: 1px solid var(--rule-color);
+      transition: color var(--transition-base), border-color var(--transition-base);
+    }
+
+    hr.divider {
+      border: none;
+      height: 1px;
+      background-color: var(--rule-color);
+      margin: var(--space-lg) 0;
+      transition: background-color var(--transition-base);
+    }
+
+    /* =========================================================
+       TILE HEADER — Brand + Theme Toggle
+       ========================================================= */
+    .tile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--rule-color);
+      margin-bottom: 0;
+      transition: border-color var(--transition-base);
+    }
+
+    .tile-header__mood {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color var(--transition-base);
+    }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      cursor: pointer;
+      background: none;
+      border: 1px solid var(--rule-color);
+      border-radius: 999px;
+      padding: 0.35rem 0.85rem;
+      transition: all var(--transition-fast);
+    }
+
+    .theme-toggle:hover {
+      color: var(--text-heading);
+      border-color: var(--text-heading);
+    }
+
+    .theme-toggle__icon {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid currentColor;
+      position: relative;
+      transition: background var(--transition-fast);
+    }
+
+    [data-theme="dark"] .theme-toggle__icon {
+      background: currentColor;
+    }
+
+    /* =========================================================
+       HERO SECTION
+       ========================================================= */
+    .hero {
+      position: relative;
+      background: var(--bg-hero);
+      padding: var(--space-2xl) 0 calc(var(--space-2xl) + 2rem) 0;
+      overflow: hidden;
+    }
+
+    /* Subtle grain texture overlay */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: var(--grain-opacity);
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 128px 128px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Ambient gradient glow */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120%;
+      height: 80%;
+      background: radial-gradient(ellipse at center, rgba(0, 25, 255, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+
+    .hero__brand {
+      font-family: var(--font-heading);
+      font-size: clamp(2.6rem, 5.5vw, 4rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-sm);
+    }
+
+    .hero__brand-accent {
+      display: block;
+      color: var(--color-electric-blue-light);
+      font-weight: 600;
+      font-size: 0.45em;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 0.3em;
+    }
+
+    .hero__tagline {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(232, 236, 241, 0.8);
+      max-width: 520px;
+      margin-bottom: var(--space-lg);
+      line-height: 1.7;
+    }
+
+    .hero__cta-group {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    /* Wave section divider */
+    .wave-divider {
+      position: relative;
+      margin-top: -1px;
+    }
+
+    .wave-divider svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .wave-divider svg path {
+      fill: var(--bg-primary);
+      transition: fill var(--transition-base);
+    }
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius-md);
+      border: 2px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all var(--transition-fast);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Primary button */
+    .btn--primary {
+      background-color: var(--color-electric-blue);
+      color: #FFFFFF;
+      border-color: var(--color-electric-blue);
+    }
+
+    .btn--primary:hover {
+      background-color: var(--color-electric-blue-hover);
+      border-color: var(--color-electric-blue-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(0, 25, 255, 0.3);
+    }
+
+    [data-theme="dark"] .btn--primary {
+      background-color: var(--color-electric-blue);
+      border-color: var(--color-electric-blue);
+      color: #FFFFFF;
+    }
+
+    [data-theme="dark"] .btn--primary:hover {
+      background-color: var(--color-electric-blue-hover);
+      border-color: var(--color-electric-blue-hover);
+      box-shadow: 0 4px 14px rgba(90, 127, 255, 0.25);
+    }
+
+    /* Secondary / outline button */
+    .btn--secondary {
+      background-color: transparent;
+      color: var(--outline-btn-text);
+      border-color: var(--outline-btn-border);
+    }
+
+    .btn--secondary:hover {
+      background-color: var(--outline-btn-hover-bg);
+      color: var(--outline-btn-hover-text);
+      transform: translateY(-1px);
+    }
+
+    /* Ghost button (for hero on dark) */
+    .btn--ghost {
+      background-color: transparent;
+      color: #FFFFFF;
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .btn--ghost:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.7);
+      transform: translateY(-1px);
+    }
+
+    /* Small variant */
+    .btn--sm {
+      font-size: 0.8rem;
+      padding: 0.6rem 1.4rem;
+    }
+
+    /* =========================================================
+       COLOR PALETTE SWATCHES
+       ========================================================= */
+    .palette {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .swatch__color {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--swatch-border);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .swatch__color:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .swatch__label {
+      font-family: var(--font-heading);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color var(--transition-base);
+    }
+
+    .swatch__hex {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+      transition: color var(--transition-base);
+    }
+
+    /* =========================================================
+       TYPOGRAPHY SPECIMENS
+       ========================================================= */
+    .type-specimen {
+      margin-bottom: var(--space-lg);
+    }
+
+    .type-specimen__meta {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.03em;
+      transition: color var(--transition-base);
+    }
+
+    .type-h1 {
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.08;
+    }
+
+    .type-h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.37rem);
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+    }
+
+    .type-h3 {
+      font-size: clamp(1.2rem, 2.5vw, 1.78rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+    }
+
+    .type-body {
+      font-size: 1rem;
+      line-height: var(--line-height);
+      max-width: 60ch;
+    }
+
+    .type-small {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 60ch;
+      transition: color var(--transition-base);
+    }
+
+    /* =========================================================
+       CARDS
+       ========================================================= */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .card {
+      background: var(--surface-card);
+      border: 1px solid var(--surface-card-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: all var(--transition-base);
+      box-shadow: var(--card-shadow);
+    }
+
+    .card:hover {
+      box-shadow: var(--card-shadow-hover);
+      transform: translateY(-3px);
+    }
+
+    .card__image {
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Gradient image placeholders using brand colors */
+    .card__image--detail {
+      background: linear-gradient(135deg, #0B1D3B 0%, #142847 40%, #1E3A5F 100%);
+    }
+
+    .card__image--protect {
+      background: linear-gradient(135deg, #0019FF 0%, #0B1D3B 100%);
+    }
+
+    .card__image--restore {
+      background: linear-gradient(135deg, #1E3A5F 0%, #0014CC 60%, #0019FF 100%);
+    }
+
+    /* Subtle wave pattern inside card images */
+    .card__image::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.06) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .card__tag {
+      position: absolute;
+      top: var(--space-sm);
+      left: var(--space-sm);
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      background: rgba(0, 25, 255, 0.85);
+      padding: 0.3rem 0.7rem;
+      border-radius: var(--radius-sm);
+      backdrop-filter: blur(4px);
+    }
+
+    .card__body {
+      padding: var(--space-md);
+    }
+
+    .card__title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 0.5rem;
+      transition: color var(--transition-base);
+    }
+
+    .card__text {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: var(--space-md);
+      transition: color var(--transition-base);
+    }
+
+    /* =========================================================
+       SPACING / RHYTHM DEMO
+       ========================================================= */
+    .rhythm-demo {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .rhythm-block {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .rhythm-block__bar {
+      height: 8px;
+      border-radius: 4px;
+      background: var(--accent);
+      opacity: 0.15;
+      transition: background var(--transition-base), opacity var(--transition-fast);
+    }
+
+    .rhythm-block:hover .rhythm-block__bar {
+      opacity: 0.35;
+    }
+
+    .rhythm-block__label {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      white-space: nowrap;
+      min-width: 100px;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      transition: color var(--transition-base);
+    }
+
+    /* =========================================================
+       EMBELLISHMENTS — Wave Dividers & Accents
+       ========================================================= */
+
+    /* Thin accent line with dot */
+    .accent-line {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin: var(--space-lg) 0;
+    }
+
+    .accent-line__line {
+      flex: 1;
+      height: 1px;
+      background: var(--rule-color);
+      transition: background var(--transition-base);
+    }
+
+    .accent-line__dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.4;
+      transition: background var(--transition-base);
+    }
+
+    /* CSS-only wave section separator */
+    .section-wave {
+      position: relative;
+      height: 48px;
+      overflow: hidden;
+    }
+
+    .section-wave svg {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 48px;
+    }
+
+    .section-wave svg path {
+      fill: var(--bg-secondary);
+      transition: fill var(--transition-base);
+    }
+
+    .section-wave--reverse svg path {
+      fill: var(--bg-primary);
+    }
+
+    /* Embellishment: floating tide dots (decorative background pattern) */
+    .embellish-dots {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 200px;
+      height: 200px;
+      opacity: var(--embellish-opacity);
+      background-image: radial-gradient(circle, var(--color-electric-blue-light) 1.5px, transparent 1.5px);
+      background-size: 20px 20px;
+      pointer-events: none;
+    }
+
+    /* Embellishment: subtle corner wave lines */
+    .embellish-wave-lines {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 300px;
+      height: 100px;
+      opacity: 0.04;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .embellish-wave-lines::before,
+    .embellish-wave-lines::after {
+      content: '';
+      position: absolute;
+      left: -20px;
+      width: 340px;
+      height: 2px;
+      border-radius: 50%;
+      background: var(--color-electric-blue-light);
+    }
+
+    .embellish-wave-lines::before {
+      bottom: 30px;
+      transform: rotate(-3deg);
+      box-shadow:
+        0 15px 0 0 var(--color-electric-blue-light),
+        0 30px 0 0 var(--color-electric-blue-light);
+    }
+
+    .embellish-wave-lines::after {
+      bottom: 60px;
+      transform: rotate(-2deg);
+    }
+
+    /* =========================================================
+       BUTTON SHOWCASE GRID
+       ========================================================= */
+    .btn-showcase {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      align-items: center;
+    }
+
+    .btn-showcase__group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .btn-showcase__label {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color var(--transition-base);
+    }
+
+    /* =========================================================
+       EMBELLISHMENT SHOWCASE
+       ========================================================= */
+    .embellish-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .embellish-box {
+      position: relative;
+      height: 160px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--surface-card-border);
+      background: var(--surface-card);
+      transition: all var(--transition-base);
+    }
+
+    .embellish-box__label {
+      position: absolute;
+      bottom: var(--space-sm);
+      left: var(--space-sm);
+      font-family: var(--font-heading);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      z-index: 2;
+      transition: color var(--transition-base);
+    }
+
+    /* Wave pattern embellishment */
+    .embellish-box--waves {
+      overflow: hidden;
+    }
+
+    .embellish-wave {
+      position: absolute;
+      width: 200%;
+      height: 100%;
+      left: -50%;
+    }
+
+    .embellish-wave__line {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: waveFloat 6s ease-in-out infinite;
+    }
+
+    .embellish-wave__line:nth-child(1) { top: 25%; opacity: 0.08; animation-delay: 0s; }
+    .embellish-wave__line:nth-child(2) { top: 40%; opacity: 0.06; animation-delay: 1s; }
+    .embellish-wave__line:nth-child(3) { top: 55%; opacity: 0.10; animation-delay: 2s; }
+    .embellish-wave__line:nth-child(4) { top: 70%; opacity: 0.05; animation-delay: 3s; }
+    .embellish-wave__line:nth-child(5) { top: 85%; opacity: 0.07; animation-delay: 0.5s; }
+
+    @keyframes waveFloat {
+      0%, 100% { transform: translateX(0) scaleY(1); }
+      25% { transform: translateX(2%) scaleY(2.5); }
+      50% { transform: translateX(-1%) scaleY(1); }
+      75% { transform: translateX(1.5%) scaleY(2); }
+    }
+
+    /* Dot grid embellishment */
+    .embellish-box--dots .embellish-dot-grid {
+      position: absolute;
+      inset: 20px;
+      background-image: radial-gradient(circle, var(--accent) 1.2px, transparent 1.2px);
+      background-size: 16px 16px;
+      opacity: 0.07;
+      animation: dotPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes dotPulse {
+      0%, 100% { opacity: 0.07; }
+      50% { opacity: 0.12; }
+    }
+
+    /* Horizontal rule embellishment */
+    .embellish-box--rules {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: var(--space-md);
+    }
+
+    .embellish-rule {
+      height: 1px;
+      background: var(--accent);
+      margin-bottom: 12px;
+      border-radius: 1px;
+      transition: opacity var(--transition-base);
+    }
+
+    .embellish-rule:nth-child(1) { width: 100%; opacity: 0.12; }
+    .embellish-rule:nth-child(2) { width: 75%; opacity: 0.08; }
+    .embellish-rule:nth-child(3) { width: 90%; opacity: 0.10; }
+    .embellish-rule:nth-child(4) { width: 60%; opacity: 0.06; }
+    .embellish-rule:nth-child(5) { width: 85%; opacity: 0.09; }
+    .embellish-rule:nth-child(6) { width: 45%; opacity: 0.05; }
+
+    /* =========================================================
+       DESIGN NOTES TABLE
+       ========================================================= */
+    .notes-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0;
+      font-size: 0.85rem;
+    }
+
+    .notes-grid dt {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--rule-color);
+      transition: color var(--transition-base), border-color var(--transition-base);
+    }
+
+    .notes-grid dd {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--rule-color);
+      transition: color var(--transition-base), border-color var(--transition-base);
+    }
+
+    /* =========================================================
+       FADE-IN ON SCROLL ANIMATION
+       ========================================================= */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeInUp var(--transition-slow) ease forwards;
+    }
+
+    .fade-in--d1 { animation-delay: 0.1s; }
+    .fade-in--d2 { animation-delay: 0.2s; }
+    .fade-in--d3 { animation-delay: 0.3s; }
+    .fade-in--d4 { animation-delay: 0.4s; }
+    .fade-in--d5 { animation-delay: 0.5s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+    @media (max-width: 768px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero__brand {
+        font-size: 2.2rem;
+      }
+
+      .btn-showcase {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .notes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .notes-grid dt {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =============================================
+       TILE HEADER
+       ============================================= -->
+  <div class="container">
+    <header class="tile-header">
+      <span class="tile-header__mood">Tidewater Clean</span>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+        <span class="theme-toggle__icon"></span>
+        <span class="theme-toggle__text">Dark mode</span>
+      </button>
+    </header>
+  </div>
+
+  <!-- =============================================
+       HERO SECTION
+       ============================================= -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__content fade-in">
+        <h1 class="hero__brand">
+          Saltwater Sudz
+          <span class="hero__brand-accent">Premium Mobile Detailing</span>
+        </h1>
+        <p class="hero__tagline">
+          Showroom-quality detailing that comes to you. Serving Bluffton, Hilton Head Island, and the Lowcountry with meticulous care for every vehicle.
+        </p>
+        <div class="hero__cta-group">
+          <a href="#" class="btn btn--primary">Book Your Detail</a>
+          <a href="#" class="btn btn--ghost">View Services</a>
+        </div>
+      </div>
+    </div>
+    <!-- Decorative dot grid -->
+    <div class="embellish-dots" style="top: 20px; right: 40px;"></div>
+  </section>
+
+  <!-- Wave divider: hero to content -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,28 C240,56 480,0 720,28 C960,56 1200,0 1440,28 L1440,56 L0,56 Z"/>
+    </svg>
+  </div>
+
+  <!-- =============================================
+       COLOR PALETTE
+       ============================================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section__label fade-in">Color Palette</div>
+
+      <div class="palette fade-in fade-in--d1">
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #0B1D3B;"></div>
+          <span class="swatch__label">Navy</span>
+          <span class="swatch__hex">#0B1D3B</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #0019FF;"></div>
+          <span class="swatch__label">Electric Blue</span>
+          <span class="swatch__hex">#0019FF</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #5A7FFF;"></div>
+          <span class="swatch__label">Light Blue</span>
+          <span class="swatch__hex">#5A7FFF</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #F5F7FA;"></div>
+          <span class="swatch__label">Cloud Gray</span>
+          <span class="swatch__hex">#F5F7FA</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #FFFFFF; border: 1px solid #E2E8F0;"></div>
+          <span class="swatch__label">White</span>
+          <span class="swatch__hex">#FFFFFF</span>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: #1A1A2E;"></div>
+          <span class="swatch__label">Near Black</span>
+          <span class="swatch__hex">#1A1A2E</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave into alt section -->
+  <div class="section-wave">
+    <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,24 C360,48 720,0 1080,24 C1260,36 1380,12 1440,24 L1440,48 L0,48 Z"/>
+    </svg>
+  </div>
+
+  <!-- =============================================
+       TYPOGRAPHY SPECIMENS
+       ============================================= -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__label fade-in">Typography</div>
+
+      <div class="type-specimen fade-in fade-in--d1">
+        <div class="type-specimen__meta">H1 -- Outfit 800 / clamp(2.4rem, 5vw, 3.5rem)</div>
+        <h1 class="type-h1">Detail That Speaks for Itself</h1>
+      </div>
+
+      <hr class="divider">
+
+      <div class="type-specimen fade-in fade-in--d2">
+        <div class="type-specimen__meta">H2 -- Outfit 700 / clamp(1.6rem, 3.5vw, 2.37rem)</div>
+        <h2 class="type-h2">Lowcountry's Trusted Detailing Service</h2>
+      </div>
+
+      <hr class="divider">
+
+      <div class="type-specimen fade-in fade-in--d3">
+        <div class="type-specimen__meta">H3 -- Outfit 600 / clamp(1.2rem, 2.5vw, 1.78rem)</div>
+        <h3 class="type-h3">Ceramic Coating, Paint Correction, Interior Restoration</h3>
+      </div>
+
+      <hr class="divider">
+
+      <div class="type-specimen fade-in fade-in--d4">
+        <div class="type-specimen__meta">Body -- DM Sans 400 / 17px / 1.65 line-height</div>
+        <p class="type-body">
+          Your vehicle deserves more than a quick wash. Saltwater Sudz delivers meticulous, hands-on detailing at your home or office across the Lowcountry. From Bluffton to Hilton Head, Okatie to Beaufort, we bring showroom results with <a href="#">premium products</a> and the kind of attention only a 15-review, five-star operation can deliver.
+        </p>
+      </div>
+
+      <hr class="divider">
+
+      <div class="type-specimen fade-in fade-in--d5">
+        <div class="type-specimen__meta">Small -- DM Sans 400 / 0.82rem / Muted</div>
+        <p class="type-small">
+          Serving Bluffton, Hilton Head Island, Okatie, Hardeeville, Beaufort, and surrounding Lowcountry areas. Owned and operated by Ryan Haag. Fully insured. Book online through Square Appointments for same-week availability.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave back to primary bg -->
+  <div class="section-wave section-wave--reverse" style="background-color: var(--bg-secondary); transition: background-color var(--transition-base);">
+    <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,24 C360,0 720,48 1080,24 C1260,12 1380,36 1440,24 L1440,48 L0,48 Z"/>
+    </svg>
+  </div>
+
+  <!-- =============================================
+       BUTTON STYLES
+       ============================================= -->
+  <section class="section" style="position: relative; overflow: hidden;">
+    <div class="container">
+      <div class="section__label fade-in">Button Styles</div>
+
+      <div class="btn-showcase fade-in fade-in--d1">
+        <div class="btn-showcase__group">
+          <span class="btn-showcase__label">Primary</span>
+          <a href="#" class="btn btn--primary">Book Now</a>
+        </div>
+        <div class="btn-showcase__group">
+          <span class="btn-showcase__label">Secondary</span>
+          <a href="#" class="btn btn--secondary">View Packages</a>
+        </div>
+        <div class="btn-showcase__group">
+          <span class="btn-showcase__label">Small Primary</span>
+          <a href="#" class="btn btn--primary btn--sm">Get a Quote</a>
+        </div>
+        <div class="btn-showcase__group">
+          <span class="btn-showcase__label">Small Secondary</span>
+          <a href="#" class="btn btn--secondary btn--sm">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Accent line -->
+      <div class="accent-line">
+        <div class="accent-line__line"></div>
+        <div class="accent-line__dot"></div>
+        <div class="accent-line__line"></div>
+      </div>
+
+      <p class="type-small" style="max-width: 50ch;">
+        Hover over each button to see the transition. Primary buttons darken and lift slightly. Secondary buttons fill with the navy brand color on hover.
+      </p>
+    </div>
+
+    <!-- Decorative wave lines in corner -->
+    <div class="embellish-wave-lines"></div>
+  </section>
+
+  <!-- Wave into alt section -->
+  <div class="section-wave">
+    <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,16 C180,48 360,0 540,24 C720,48 900,0 1080,24 C1260,48 1380,8 1440,16 L1440,48 L0,48 Z"/>
+    </svg>
+  </div>
+
+  <!-- =============================================
+       CARD COMPONENTS
+       ============================================= -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__label fade-in">Card Components</div>
+
+      <div class="card-grid">
+        <!-- Card 1 -->
+        <div class="card fade-in fade-in--d1">
+          <div class="card__image card__image--detail">
+            <span class="card__tag">Most Popular</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Full Exterior Detail</h3>
+            <p class="card__text">
+              Hand wash, clay bar treatment, machine polish, and sealant application. Your paint will look better than the day you bought it.
+            </p>
+            <a href="#" class="btn btn--primary btn--sm">Book This Service</a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card fade-in fade-in--d2">
+          <div class="card__image card__image--protect">
+            <span class="card__tag">Premium</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Ceramic Coating</h3>
+            <p class="card__text">
+              Multi-layer ceramic coating with up to five years of protection. Hydrophobic finish that repels water, dirt, and UV damage.
+            </p>
+            <a href="#" class="btn btn--secondary btn--sm">Learn More</a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card fade-in fade-in--d3">
+          <div class="card__image card__image--restore">
+            <span class="card__tag">Interior</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Deep Interior Restoration</h3>
+            <p class="card__text">
+              Steam cleaning, leather conditioning, stain removal, and odor elimination. Every surface sanitized and restored to like-new condition.
+            </p>
+            <a href="#" class="btn btn--secondary btn--sm">See Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave back to primary bg -->
+  <div class="section-wave section-wave--reverse" style="background-color: var(--bg-secondary); transition: background-color var(--transition-base);">
+    <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,24 C480,48 960,0 1440,24 L1440,48 L0,48 Z"/>
+    </svg>
+  </div>
+
+  <!-- =============================================
+       SPACING / RHYTHM DEMONSTRATION
+       ============================================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section__label fade-in">Spacing Rhythm</div>
+
+      <div class="rhythm-demo fade-in fade-in--d1">
+        <div class="rhythm-block" style="margin-bottom: 8px;">
+          <span class="rhythm-block__label">0.5rem (xs)</span>
+          <div class="rhythm-block__bar" style="width: 8%;"></div>
+        </div>
+        <div class="rhythm-block" style="margin-bottom: 12px;">
+          <span class="rhythm-block__label">0.75rem (sm)</span>
+          <div class="rhythm-block__bar" style="width: 12%;"></div>
+        </div>
+        <div class="rhythm-block" style="margin-bottom: 16px;">
+          <span class="rhythm-block__label">1rem (base)</span>
+          <div class="rhythm-block__bar" style="width: 16%;"></div>
+        </div>
+        <div class="rhythm-block" style="margin-bottom: 24px;">
+          <span class="rhythm-block__label">1.5rem (md)</span>
+          <div class="rhythm-block__bar" style="width: 24%;"></div>
+        </div>
+        <div class="rhythm-block" style="margin-bottom: 32px;">
+          <span class="rhythm-block__label">3rem (lg)</span>
+          <div class="rhythm-block__bar" style="width: 48%;"></div>
+        </div>
+        <div class="rhythm-block" style="margin-bottom: 40px;">
+          <span class="rhythm-block__label">5rem (xl)</span>
+          <div class="rhythm-block__bar" style="width: 80%;"></div>
+        </div>
+        <div class="rhythm-block">
+          <span class="rhythm-block__label">7rem (2xl)</span>
+          <div class="rhythm-block__bar" style="width: 100%;"></div>
+        </div>
+      </div>
+
+      <!-- Accent line -->
+      <div class="accent-line">
+        <div class="accent-line__line"></div>
+        <div class="accent-line__dot"></div>
+        <div class="accent-line__line"></div>
+      </div>
+
+      <p class="type-small fade-in fade-in--d2" style="max-width: 50ch;">
+        Generous spacing density. Content breathes. Section gaps use 5-7rem. Element gaps use 1.5rem. The whitespace itself is a design element.
+      </p>
+    </div>
+  </section>
+
+  <!-- Wave into alt section -->
+  <div class="section-wave">
+    <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,24 C360,48 720,0 1080,24 C1260,36 1380,12 1440,24 L1440,48 L0,48 Z"/>
+    </svg>
+  </div>
+
+  <!-- =============================================
+       EMBELLISHMENT PATTERNS
+       ============================================= -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section__label fade-in">Embellishment Patterns</div>
+
+      <div class="embellish-showcase fade-in fade-in--d1">
+        <!-- Wave lines -->
+        <div class="embellish-box embellish-box--waves">
+          <div class="embellish-wave">
+            <div class="embellish-wave__line"></div>
+            <div class="embellish-wave__line"></div>
+            <div class="embellish-wave__line"></div>
+            <div class="embellish-wave__line"></div>
+            <div class="embellish-wave__line"></div>
+          </div>
+          <span class="embellish-box__label">Wave Lines</span>
+        </div>
+
+        <!-- Dot grid -->
+        <div class="embellish-box embellish-box--dots">
+          <div class="embellish-dot-grid"></div>
+          <span class="embellish-box__label">Dot Grid</span>
+        </div>
+
+        <!-- Horizontal rules -->
+        <div class="embellish-box embellish-box--rules">
+          <div class="embellish-rule"></div>
+          <div class="embellish-rule"></div>
+          <div class="embellish-rule"></div>
+          <div class="embellish-rule"></div>
+          <div class="embellish-rule"></div>
+          <div class="embellish-rule"></div>
+          <span class="embellish-box__label">Stacked Rules</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wave back to primary bg -->
+  <div class="section-wave section-wave--reverse" style="background-color: var(--bg-secondary); transition: background-color var(--transition-base);">
+    <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,24 C360,0 720,48 1080,24 C1260,12 1380,36 1440,24 L1440,48 L0,48 Z"/>
+    </svg>
+  </div>
+
+  <!-- =============================================
+       DESIGN NOTES
+       ============================================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section__label fade-in">Design Notes</div>
+
+      <dl class="notes-grid fade-in fade-in--d1">
+        <dt>Direction</dt>
+        <dd>Tidewater Clean -- clean, premium, minimal coastal</dd>
+
+        <dt>Heading Font</dt>
+        <dd>Outfit (800/700/600) -- geometric, confident, modern with enough weight to anchor headlines</dd>
+
+        <dt>Body Font</dt>
+        <dd>DM Sans (400/500) -- clean, highly readable, professional without being generic</dd>
+
+        <dt>Type Scale</dt>
+        <dd>1.333 (Perfect Fourth) with fluid clamp() sizing</dd>
+
+        <dt>Colors</dt>
+        <dd>Deep navy (#0B1D3B) base, electric blue (#0019FF) CTAs, cloud gray (#F5F7FA) alternating sections, near-black (#1A1A2E) body text</dd>
+
+        <dt>Spacing</dt>
+        <dd>Generous density -- 5-7rem section gaps, 1.5rem element spacing, content breathes</dd>
+
+        <dt>Motion</dt>
+        <dd>Subtle -- gentle fade-in-up on load, smooth hover transitions on buttons and cards (0.2-0.35s ease)</dd>
+
+        <dt>Buttons</dt>
+        <dd>Solid fill primary (electric blue, 6px radius), outlined secondary (navy border). Hover lifts -1px with shadow.</dd>
+
+        <dt>Embellishments</dt>
+        <dd>CSS-only wave dividers (SVG), dot grid patterns, thin accent lines with dots, stacked horizontal rules. Whitespace does the heavy lifting.</dd>
+
+        <dt>Contrast</dt>
+        <dd>All pairings verified WCAG AA. Adjusted dark-mode accent to #5A7FFF (4.72:1 on navy) for link/accent readability.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Footer rule -->
+  <div class="container" style="padding-bottom: var(--space-lg);">
+    <div class="accent-line">
+      <div class="accent-line__line"></div>
+      <div class="accent-line__dot"></div>
+      <div class="accent-line__line"></div>
+    </div>
+    <p class="type-small" style="text-align: center;">
+      Saltwater Sudz LLC -- Style Tile v1 -- Tidewater Clean
+    </p>
+  </div>
+
+  <!-- =============================================
+       THEME TOGGLE SCRIPT
+       ============================================= -->
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      const next = current === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', next);
+
+      const label = document.querySelector('.theme-toggle__text');
+      label.textContent = next === 'light' ? 'Dark mode' : 'Light mode';
+    }
+  </script>
+
+</body>
+</html>

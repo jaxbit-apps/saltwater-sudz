@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saltwater Sudz - Salt &amp; Steel Style Tile</title>
+
+<!-- Fonts: Industrial geometric heading + crisp technical body -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================
+   CSS Custom Properties - Light & Dark Modes
+   ============================================ */
+
+:root {
+  /* Brand constants (same in both modes) */
+  --color-primary: #0019FF;
+  --color-primary-light: #4D7CFF;
+  --color-accent: #0019FF;
+  --color-navy: #0B1D3B;
+  --color-deep-black: #070D1A;
+  --color-charcoal: #1C1C2E;
+  --color-off-white: #EAEEF2;
+  --color-steel: #6B7B8D;
+
+  /* Typography */
+  --font-heading: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+  --type-scale: 1.25;
+  --body-size: 17px;
+  --line-height: 1.6;
+
+  /* Spacing */
+  --space-unit: 1rem;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-section: 4.5rem;
+
+  /* Surfaces */
+  --radius: 3px;
+  --radius-card: 3px;
+
+  /* Motion */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
+  --transition-slow: 0.4s ease;
+}
+
+/* Dark Mode (default) */
+[data-theme="dark"] {
+  --bg-primary: #070D1A;
+  --bg-section: #0B1D3B;
+  --bg-surface: #1C1C2E;
+  --bg-surface-hover: #252540;
+  --text-primary: #EAEEF2;
+  --text-secondary: #8A97A4;
+  --text-muted: #8A97A4;
+  --text-heading: #EAEEF2;
+  --accent-text: #4D7CFF;
+  --border-color: rgba(77, 124, 255, 0.15);
+  --border-subtle: rgba(234, 238, 242, 0.08);
+  --glow-color: rgba(0, 25, 255, 0.4);
+  --overlay-dark: rgba(7, 13, 26, 0.85);
+  --grid-line: rgba(77, 124, 255, 0.06);
+  --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  --card-hover-shadow: 0 8px 32px rgba(0, 25, 255, 0.2);
+  --embellish-opacity: 0.12;
+  --grain-opacity: 0.03;
+}
+
+/* Light Mode */
+[data-theme="light"] {
+  --bg-primary: #EAEEF2;
+  --bg-section: #F4F6F8;
+  --bg-surface: #FFFFFF;
+  --bg-surface-hover: #F0F3F7;
+  --text-primary: #0B1D3B;
+  --text-secondary: #546374;
+  --text-muted: #546374;
+  --text-heading: #070D1A;
+  --accent-text: #0019FF;
+  --border-color: rgba(0, 25, 255, 0.12);
+  --border-subtle: rgba(11, 29, 59, 0.08);
+  --glow-color: rgba(0, 25, 255, 0.15);
+  --overlay-dark: rgba(234, 238, 242, 0.9);
+  --grid-line: rgba(0, 25, 255, 0.04);
+  --card-shadow: 0 2px 12px rgba(11, 29, 59, 0.08);
+  --card-hover-shadow: 0 8px 32px rgba(0, 25, 255, 0.1);
+  --embellish-opacity: 0.07;
+  --grain-opacity: 0.02;
+}
+
+
+/* ============================================
+   Reset & Base
+   ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--body-size);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: var(--line-height);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  transition: background-color var(--transition-slow), color var(--transition-slow);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ============================================
+   Layout
+   ============================================ */
+
+.tile-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-lg);
+}
+
+.tile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.tile-label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.tile-mood {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+section {
+  margin-bottom: var(--space-section);
+}
+
+.section-label {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+
+/* ============================================
+   Theme Toggle
+   ============================================ */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: var(--space-xs) var(--space-md);
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all var(--transition-base);
+}
+
+.theme-toggle:hover {
+  color: var(--accent-text);
+  border-color: var(--accent-text);
+}
+
+.toggle-track {
+  width: 36px;
+  height: 18px;
+  border-radius: 9px;
+  background: var(--border-subtle);
+  position: relative;
+  transition: background var(--transition-base);
+}
+
+.toggle-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform var(--transition-base);
+}
+
+[data-theme="light"] .toggle-thumb {
+  transform: translateX(18px);
+}
+
+
+/* ============================================
+   Color Palette
+   ============================================ */
+
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-md);
+}
+
+.swatch {
+  position: relative;
+  aspect-ratio: 1.2;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.swatch-color {
+  width: 100%;
+  height: 100%;
+}
+
+.swatch-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-sm) var(--space-sm);
+  background: var(--overlay-dark);
+  backdrop-filter: blur(4px);
+}
+
+.swatch-name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  display: block;
+}
+
+.swatch-hex {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+
+/* ============================================
+   Typography Specimens
+   ============================================ */
+
+.type-specimen {
+  margin-bottom: var(--space-xl);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--text-heading);
+  text-wrap: balance;
+  line-height: 1.1;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 3.5rem;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 2.25rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.type-body {
+  font-size: 1rem;
+  line-height: var(--line-height);
+  color: var(--text-primary);
+  max-width: 60ch;
+  text-wrap: pretty;
+}
+
+.type-body a {
+  color: var(--accent-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+.type-body a:hover {
+  color: var(--color-primary-light);
+  text-decoration-color: transparent;
+}
+
+.type-small {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  max-width: 55ch;
+}
+
+.type-meta {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: var(--space-xs);
+}
+
+
+/* ============================================
+   Buttons
+   ============================================ */
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.85rem 2rem;
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.4s ease;
+}
+
+.btn:hover::after {
+  left: 100%;
+}
+
+/* Primary */
+.btn-primary {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(0, 25, 255, 0.25);
+}
+
+.btn-primary:hover {
+  background: #0015D4;
+  border-color: #0015D4;
+  box-shadow: 0 4px 20px var(--glow-color);
+  transform: translateY(-1px);
+}
+
+/* Secondary / Ghost */
+.btn-secondary {
+  background: transparent;
+  color: var(--accent-text);
+  border-color: var(--accent-text);
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 25, 255, 0.08);
+  box-shadow: 0 0 16px rgba(0, 25, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Small variant */
+.btn-sm {
+  font-size: 0.7rem;
+  padding: 0.6rem 1.4rem;
+}
+
+/* Hover state demos */
+.btn-demo-hover {
+  background: #0015D4;
+  border-color: #0015D4;
+  box-shadow: 0 4px 20px var(--glow-color);
+  transform: translateY(-1px);
+  color: #FFFFFF;
+}
+
+.btn-demo-hover-ghost {
+  background: rgba(0, 25, 255, 0.08);
+  box-shadow: 0 0 16px rgba(0, 25, 255, 0.15);
+  transform: translateY(-1px);
+  color: var(--accent-text);
+  border-color: var(--accent-text);
+}
+
+
+/* ============================================
+   Cards
+   ============================================ */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.card-image {
+  height: 160px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Card 1: Navy-to-charcoal gradient with diagonal line */
+.card-img-1 {
+  background: linear-gradient(135deg, #0B1D3B 0%, #1C1C2E 60%, #0019FF 150%);
+}
+
+.card-img-1::before {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 20px,
+    rgba(77, 124, 255, 0.05) 20px,
+    rgba(77, 124, 255, 0.05) 21px
+  );
+}
+
+/* Card 2: Dark gradient with grid overlay */
+.card-img-2 {
+  background: linear-gradient(180deg, #070D1A 0%, #0B1D3B 100%);
+}
+
+.card-img-2::before {
+  background:
+    linear-gradient(rgba(77, 124, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77, 124, 255, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Card 3: Angled steel gradient */
+.card-img-3 {
+  background: linear-gradient(160deg, #1C1C2E 0%, #0B1D3B 50%, #070D1A 100%);
+}
+
+.card-img-3::before {
+  background: linear-gradient(
+    135deg,
+    transparent 40%,
+    rgba(77, 124, 255, 0.06) 40%,
+    rgba(77, 124, 255, 0.06) 60%,
+    transparent 60%
+  );
+}
+
+.card-body {
+  padding: var(--space-lg);
+}
+
+.card-tag {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  margin-bottom: var(--space-sm);
+  padding: 2px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-heading);
+  margin-bottom: var(--space-sm);
+  line-height: 1.2;
+}
+
+.card-text {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: var(--space-md);
+}
+
+.card-link {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  transition: gap var(--transition-base), color var(--transition-base);
+}
+
+.card-link:hover {
+  gap: 0.8em;
+}
+
+.card-link::after {
+  content: '\2192';
+  transition: transform var(--transition-base);
+}
+
+
+/* ============================================
+   Hero Section
+   ============================================ */
+
+.hero {
+  position: relative;
+  background: linear-gradient(165deg, var(--color-navy) 0%, var(--color-deep-black) 70%);
+  padding: var(--space-2xl) var(--space-xl);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Diagonal line embellishment */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    rgba(77, 124, 255, 0.04) 40px,
+    rgba(77, 124, 255, 0.04) 41px
+  );
+  pointer-events: none;
+}
+
+/* Grid overlay */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(77, 124, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77, 124, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+}
+
+.hero-tag {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #4D7CFF;
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.hero-tag::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: #4D7CFF;
+}
+
+.hero h1 {
+  color: #EAEEF2;
+  margin-bottom: var(--space-md);
+  font-size: 3.2rem;
+  line-height: 1.05;
+}
+
+.hero-text {
+  color: #8A97A4;
+  font-size: 1rem;
+  max-width: 50ch;
+  margin-bottom: var(--space-lg);
+  line-height: 1.6;
+}
+
+.hero .button-row {
+  position: relative;
+  z-index: 2;
+}
+
+/* Accent line on right side */
+.hero-accent {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 60%;
+  background: linear-gradient(180deg, transparent 0%, #0019FF 30%, #4D7CFF 70%, transparent 100%);
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.hero-accent::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -4px;
+  width: 10px;
+  height: 10px;
+  background: #0019FF;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(0, 25, 255, 0.6);
+}
+
+/* Floating corner accent */
+.hero-corner {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
+  opacity: 0.3;
+}
+
+.hero-corner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: #4D7CFF;
+}
+
+.hero-corner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: #4D7CFF;
+}
+
+
+/* ============================================
+   Spacing / Rhythm Demonstration
+   ============================================ */
+
+.spacing-demo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.spacing-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.spacing-bar {
+  height: 8px;
+  background: var(--color-primary);
+  border-radius: 1px;
+  opacity: 0.7;
+}
+
+.spacing-label {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  min-width: 80px;
+  text-align: right;
+}
+
+.spacing-value {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  min-width: 50px;
+}
+
+
+/* ============================================
+   Embellishments Section
+   ============================================ */
+
+.embellish-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.embellish-box {
+  aspect-ratio: 1.5;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.embellish-label {
+  position: absolute;
+  bottom: var(--space-sm);
+  left: var(--space-sm);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  z-index: 2;
+}
+
+/* Pattern 1: Diagonal lines */
+.embellish-diagonals {
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 12px,
+      rgba(77, 124, 255, var(--embellish-opacity)) 12px,
+      rgba(77, 124, 255, var(--embellish-opacity)) 13px
+    ),
+    var(--bg-surface);
+}
+
+/* Pattern 2: Grid overlay */
+.embellish-grid-pattern {
+  background:
+    linear-gradient(rgba(77, 124, 255, var(--embellish-opacity)) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77, 124, 255, var(--embellish-opacity)) 1px, transparent 1px),
+    var(--bg-surface);
+  background-size: 20px 20px, 20px 20px, 100% 100%;
+}
+
+/* Pattern 3: Metallic gradient with dot matrix */
+.embellish-metallic {
+  background:
+    radial-gradient(circle, rgba(77, 124, 255, 0.15) 1px, transparent 1px),
+    linear-gradient(135deg, var(--bg-surface) 0%, rgba(77, 124, 255, 0.05) 50%, var(--bg-surface) 100%);
+  background-size: 12px 12px, 100% 100%;
+}
+
+/* Angled section transition demo */
+.section-angle {
+  position: relative;
+  padding: var(--space-xl) 0;
+}
+
+.section-angle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--bg-section);
+  clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
+  opacity: 0.5;
+}
+
+
+/* ============================================
+   Brand Name Treatment
+   ============================================ */
+
+.brand-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-heading);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.25em;
+}
+
+.brand-name .brand-accent {
+  color: var(--accent-text);
+}
+
+/* Hero brand treatment - larger */
+.hero .brand-name-hero {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #EAEEF2;
+  display: inline-block;
+}
+
+.hero .brand-name-hero .brand-accent {
+  color: #4D7CFF;
+}
+
+
+/* ============================================
+   Trust Badge
+   ============================================ */
+
+.trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: linear-gradient(135deg, var(--bg-surface), rgba(77, 124, 255, 0.04));
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+}
+
+.trust-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(77, 124, 255, 0.15), rgba(77, 124, 255, 0.05));
+  border: 1px solid rgba(77, 124, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.trust-icon::after {
+  content: '';
+  width: 8px;
+  height: 4px;
+  border-left: 2px solid var(--accent-text);
+  border-bottom: 2px solid var(--accent-text);
+  transform: rotate(-45deg);
+  margin-top: -2px;
+}
+
+.trust-text {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.trust-text strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+
+/* ============================================
+   Design Notes Table
+   ============================================ */
+
+.notes-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.notes-table th,
+.notes-table td {
+  text-align: left;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.notes-table th {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.notes-table td {
+  color: var(--text-primary);
+}
+
+.notes-table td:first-child {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes accent-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    box-shadow: 0 0 8px rgba(0, 25, 255, 0.3);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 20px rgba(0, 25, 255, 0.6);
+  }
+}
+
+@keyframes line-draw {
+  from { width: 0; }
+  to { width: 24px; }
+}
+
+.hero-accent::before {
+  animation: accent-pulse 3s ease-in-out infinite;
+}
+
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 1.75rem; }
+  .hero h1 { font-size: 2.2rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .embellish-grid { grid-template-columns: 1fr 1fr; }
+  .hero { padding: var(--space-xl) var(--space-lg); min-height: 300px; }
+  .hero-accent { display: none; }
+  .hero-corner { display: none; }
+}
+
+@media (max-width: 480px) {
+  .tile-container { padding: var(--space-lg) var(--space-md); }
+  .embellish-grid { grid-template-columns: 1fr; }
+  .palette-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="tile-container">
+
+  <!-- ===== HEADER ===== -->
+  <header class="tile-header">
+    <div>
+      <div class="tile-label">Style Tile / Direction 2</div>
+      <div class="tile-mood">Salt &amp; Steel</div>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark mode">
+      <span>Dark</span>
+      <div class="toggle-track">
+        <div class="toggle-thumb"></div>
+      </div>
+      <span>Light</span>
+    </button>
+  </header>
+
+
+  <!-- ===== BRAND NAME ===== -->
+  <section>
+    <div class="section-label">Brand Treatment</div>
+    <div class="brand-name">
+      Saltwater<span class="brand-accent"> Sudz</span>
+    </div>
+    <div class="type-meta" style="display: block; margin-top: var(--space-sm);">Barlow Condensed 800 / Tracked Uppercase / Accent on "Sudz"</div>
+  </section>
+
+
+  <!-- ===== COLOR PALETTE ===== -->
+  <section>
+    <div class="section-label">Color Palette</div>
+    <div class="palette-grid">
+      <div class="swatch">
+        <div class="swatch-color" style="background: #0019FF;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Electric Blue</span>
+          <span class="swatch-hex">#0019FF</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #4D7CFF;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Blue Light</span>
+          <span class="swatch-hex">#4D7CFF</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #0B1D3B;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Navy</span>
+          <span class="swatch-hex">#0B1D3B</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #070D1A;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Deep Black</span>
+          <span class="swatch-hex">#070D1A</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #1C1C2E;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Charcoal</span>
+          <span class="swatch-hex">#1C1C2E</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #EAEEF2;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Off-White</span>
+          <span class="swatch-hex">#EAEEF2</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: linear-gradient(135deg, #6B7B8D, #8A97A4);"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Steel Gray</span>
+          <span class="swatch-hex">#6B7B8D</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== TYPOGRAPHY ===== -->
+  <section>
+    <div class="section-label">Typography</div>
+
+    <div class="type-specimen">
+      <h1>Precision Detailing,<br>Delivered to You.</h1>
+      <span class="type-meta">H1 / Barlow Condensed 800 / 3.5rem / Uppercase / -0.01em tracking</span>
+    </div>
+
+    <div class="type-specimen">
+      <h2>Lowcountry's Premier<br>Mobile Detail Service</h2>
+      <span class="type-meta">H2 / Barlow Condensed 700 / 2.25rem / Uppercase / 0.02em tracking</span>
+    </div>
+
+    <div class="type-specimen">
+      <h3>Five-Star Protection for Your Vehicle</h3>
+      <span class="type-meta">H3 / Barlow Condensed 600 / 1.5rem / Uppercase / 0.03em tracking</span>
+    </div>
+
+    <div class="type-specimen" style="margin-top: var(--space-xl);">
+      <p class="type-body">
+        Saltwater Sudz delivers premium mobile car detailing across the Lowcountry, from Bluffton and Hilton Head Island to Okatie, Hardeeville, and Beaufort. Our detail-obsessed approach means your vehicle gets <a href="#">showroom-quality results</a> at your home or office. Salt air, road grime, pollen buildup -- we eliminate what the Lowcountry throws at your ride.
+      </p>
+      <span class="type-meta">Body / Barlow 400 / 17px / 1.6 line-height</span>
+    </div>
+
+    <div class="type-specimen" style="margin-top: var(--space-lg);">
+      <p class="type-small">
+        Serving Bluffton, Hilton Head Island, Okatie, Hardeeville, Beaufort, and surrounding Lowcountry areas. 15 five-star reviews on Google. Fully insured. All products are pH-balanced and paint-safe.
+      </p>
+      <span class="type-meta">Small / Barlow 400 / 0.82rem / Muted color</span>
+    </div>
+  </section>
+
+
+  <!-- ===== BUTTONS ===== -->
+  <section>
+    <div class="section-label">Buttons</div>
+
+    <div style="margin-bottom: var(--space-lg);">
+      <div class="type-meta" style="margin-bottom: var(--space-sm); display: block;">Default State</div>
+      <div class="button-row">
+        <button class="btn btn-primary">Book Your Detail</button>
+        <button class="btn btn-secondary">View Services</button>
+        <button class="btn btn-secondary btn-sm">Learn More</button>
+      </div>
+    </div>
+
+    <div>
+      <div class="type-meta" style="margin-bottom: var(--space-sm); display: block;">Hover State (simulated)</div>
+      <div class="button-row">
+        <button class="btn btn-primary btn-demo-hover">Book Your Detail</button>
+        <button class="btn btn-demo-hover-ghost btn-secondary">View Services</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== CARDS ===== -->
+  <section>
+    <div class="section-label">Card Components</div>
+    <div class="card-grid">
+
+      <div class="card">
+        <div class="card-image card-img-1"></div>
+        <div class="card-body">
+          <span class="card-tag">Signature</span>
+          <div class="card-title">Full Exterior Detail</div>
+          <p class="card-text">Hand wash, clay bar treatment, polish, and ceramic sealant. Restores and protects against salt, UV, and coastal elements.</p>
+          <a href="#" class="card-link">View Package</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image card-img-2"></div>
+        <div class="card-body">
+          <span class="card-tag">Premium</span>
+          <div class="card-title">Interior Restoration</div>
+          <p class="card-text">Deep extraction, leather conditioning, and surface sanitization. Every seam, vent, and crevice detailed by hand.</p>
+          <a href="#" class="card-link">View Package</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image card-img-3"></div>
+        <div class="card-body">
+          <span class="card-tag">Elite</span>
+          <div class="card-title">Complete Correction</div>
+          <p class="card-text">Paint correction, ceramic coating, full interior overhaul. The ultimate detail for those who demand perfection.</p>
+          <a href="#" class="card-link">View Package</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ===== HERO SECTION ===== -->
+  <section>
+    <div class="section-label">Hero Section</div>
+    <div class="hero">
+      <div class="hero-corner"></div>
+      <div class="hero-accent"></div>
+      <div class="hero-content">
+        <div class="hero-tag">Bluffton &amp; Hilton Head Island</div>
+        <h1>Your Ride Deserves<br>Better Than a<br>Drive-Through Wash.</h1>
+        <p class="hero-text">Premium mobile detailing that comes to you. Showroom results, zero shortcuts. Serving the Lowcountry with 15 five-star reviews and counting.</p>
+        <div class="button-row">
+          <button class="btn btn-primary">Book Now on Square</button>
+          <button class="btn btn-secondary" style="color: #EAEEF2; border-color: rgba(234, 238, 242, 0.3);">See Our Work</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== TRUST BADGES ===== -->
+  <section>
+    <div class="section-label">Trust Badges</div>
+    <div class="trust-badges">
+      <div class="trust-badge">
+        <div class="trust-icon"></div>
+        <div class="trust-text"><strong>15</strong> Five-Star Reviews</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-icon"></div>
+        <div class="trust-text">Fully <strong>Insured</strong></div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-icon"></div>
+        <div class="trust-text"><strong>Mobile</strong> Service</div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-icon"></div>
+        <div class="trust-text"><strong>pH-Safe</strong> Products</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== SPACING / RHYTHM ===== -->
+  <section>
+    <div class="section-label">Spacing &amp; Rhythm</div>
+    <div class="spacing-demo">
+      <div class="spacing-row">
+        <span class="spacing-label">XS</span>
+        <div class="spacing-bar" style="width: 16px;"></div>
+        <span class="spacing-value">0.25rem</span>
+      </div>
+      <div class="spacing-row">
+        <span class="spacing-label">SM</span>
+        <div class="spacing-bar" style="width: 32px;"></div>
+        <span class="spacing-value">0.5rem</span>
+      </div>
+      <div class="spacing-row">
+        <span class="spacing-label">MD</span>
+        <div class="spacing-bar" style="width: 64px;"></div>
+        <span class="spacing-value">1rem</span>
+      </div>
+      <div class="spacing-row">
+        <span class="spacing-label">LG</span>
+        <div class="spacing-bar" style="width: 96px;"></div>
+        <span class="spacing-value">1.5rem</span>
+      </div>
+      <div class="spacing-row">
+        <span class="spacing-label">XL</span>
+        <div class="spacing-bar" style="width: 160px;"></div>
+        <span class="spacing-value">2.5rem</span>
+      </div>
+      <div class="spacing-row">
+        <span class="spacing-label">2XL</span>
+        <div class="spacing-bar" style="width: 256px;"></div>
+        <span class="spacing-value">4rem</span>
+      </div>
+      <div class="spacing-row">
+        <span class="spacing-label">Section</span>
+        <div class="spacing-bar" style="width: 360px;"></div>
+        <span class="spacing-value">4.5rem</span>
+      </div>
+    </div>
+    <div class="type-meta" style="display: block; margin-top: var(--space-md);">Density: Compact-to-balanced. Grid-driven. Tight element gaps, generous section breaks.</div>
+  </section>
+
+
+  <!-- ===== EMBELLISHMENTS ===== -->
+  <section>
+    <div class="section-label">Embellishment Patterns</div>
+    <div class="embellish-grid">
+      <div class="embellish-box embellish-diagonals">
+        <span class="embellish-label">Diagonal Lines</span>
+      </div>
+      <div class="embellish-box embellish-grid-pattern">
+        <span class="embellish-label">Grid Overlay</span>
+      </div>
+      <div class="embellish-box embellish-metallic">
+        <span class="embellish-label">Metallic Dot Matrix</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== DESIGN NOTES ===== -->
+  <section>
+    <div class="section-label">Design Notes</div>
+    <table class="notes-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Heading Font</td>
+          <td>Barlow Condensed (600-800)</td>
+        </tr>
+        <tr>
+          <td>Body Font</td>
+          <td>Barlow (400-500)</td>
+        </tr>
+        <tr>
+          <td>Type Scale</td>
+          <td>1.25 ratio</td>
+        </tr>
+        <tr>
+          <td>Border Radius</td>
+          <td>3px (sharp, industrial)</td>
+        </tr>
+        <tr>
+          <td>Motion Level</td>
+          <td>Controlled -- sharp transitions, slide-in animations</td>
+        </tr>
+        <tr>
+          <td>Density</td>
+          <td>Compact / structured grid</td>
+        </tr>
+        <tr>
+          <td>Embellishments</td>
+          <td>Diagonal lines, grid overlays, metallic gradients, angled section transitions</td>
+        </tr>
+        <tr>
+          <td>Brand Mark</td>
+          <td>CSS text treatment (no logo file)</td>
+        </tr>
+        <tr>
+          <td>CTA Target</td>
+          <td>Square Appointments booking</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <!-- ===== WCAG NOTES ===== -->
+  <section>
+    <div class="section-label">Contrast Verification</div>
+    <table class="notes-table">
+      <thead>
+        <tr>
+          <th>Pairing</th>
+          <th>Ratio</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Off-white on Navy</td>
+          <td>14.37:1</td>
+          <td>AA Pass</td>
+        </tr>
+        <tr>
+          <td>Off-white on Charcoal</td>
+          <td>14.35:1</td>
+          <td>AA Pass</td>
+        </tr>
+        <tr>
+          <td>Off-white on Deep Black</td>
+          <td>16.65:1</td>
+          <td>AA Pass</td>
+        </tr>
+        <tr>
+          <td>Muted (#8A97A4) on Navy</td>
+          <td>5.62:1</td>
+          <td>AA Pass</td>
+        </tr>
+        <tr>
+          <td>Blue text (#4D7CFF) on Navy</td>
+          <td>4.50:1</td>
+          <td>AA Pass</td>
+        </tr>
+        <tr>
+          <td>White on Blue button</td>
+          <td>8.13:1</td>
+          <td>AA Pass</td>
+        </tr>
+        <tr>
+          <td>Navy on Off-white</td>
+          <td>14.37:1</td>
+          <td>AA Pass</td>
+        </tr>
+        <tr>
+          <td>Muted (#546374) on Off-white</td>
+          <td>5.28:1</td>
+          <td>AA Pass</td>
+        </tr>
+        <tr>
+          <td>Blue (#0019FF) on Off-white</td>
+          <td>6.97:1</td>
+          <td>AA Pass</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+</script>
+
+</body>
+</html>

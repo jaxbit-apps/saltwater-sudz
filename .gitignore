@@ -1,0 +1,14 @@
+# WordPress core (not needed for GitHub Pages)
+wp-admin/
+wp-includes/
+wp-content/
+*.php
+license.txt
+readme.html
+available-site-translations.json
+
+# macOS
+.DS_Store
+
+# Node
+node_modules/

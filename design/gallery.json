@@ -1,0 +1,45 @@
+{
+  "project": "Saltwater Sudz LLC",
+  "brief": "Premium mobile car detailing in Bluffton, SC — coastal professional aesthetic, SEO-optimized",
+  "phase": "theme",
+  "startedAt": "2026-03-23T17:55:00Z",
+  "siteUrl": "http://localhost:8881",
+  "references": [],
+  "artifacts": {
+    "styles": [
+      { "file": "styles/v1-tile1.html", "version": 1, "label": "Tidewater Clean", "colors": ["#0B1D3B", "#0019FF", "#F5F7FA", "#1A1A2E", "#FFFFFF"] },
+      { "file": "styles/v1-tile2.html", "version": 1, "label": "Salt & Steel", "colors": ["#070D1A", "#0019FF", "#1C1C2E", "#EAEEF2", "#6B7B8D"] },
+      { "file": "styles/v1-tile3.html", "version": 1, "label": "Lowcountry Light", "colors": ["#0B1D3B", "#0077B6", "#F5F0EB", "#F0F2F5", "#2D3436"] }
+    ],
+    "pages": [
+      { "file": "pages/v1-layout1.html", "version": 1, "label": "Coastal Scroll", "colors": ["#0B1D3B", "#006BA5", "#F5F0EB", "#FAFBFC"] },
+      { "file": "pages/v1-layout2.html", "version": 1, "label": "Bold Anchor", "colors": ["#0B1D3B", "#006BA5", "#F5F0EB", "#FAFBFC"] },
+      { "file": "pages/v1-layout3.html", "version": 1, "label": "Clean Grid", "colors": ["#0B1D3B", "#006BA5", "#F5F0EB", "#FAFBFC"] }
+    ],
+    "approved": [
+      { "file": "approved/homepage.html", "version": 1, "label": "Homepage", "colors": ["#0B1D3B", "#006BA5", "#F5F0EB", "#FAFBFC"] },
+      { "file": "approved/services.html", "version": 1, "label": "Services", "colors": ["#0B1D3B", "#006BA5", "#F5F0EB", "#FAFBFC"] },
+      { "file": "approved/about.html", "version": 1, "label": "About", "colors": ["#0B1D3B", "#006BA5", "#F5F0EB", "#FAFBFC"] },
+      { "file": "approved/service-area.html", "version": 1, "label": "Service Areas", "colors": ["#0B1D3B", "#006BA5", "#F5F0EB", "#FAFBFC"] },
+      { "file": "approved/contact.html", "version": 1, "label": "Contact", "colors": ["#0B1D3B", "#006BA5", "#F5F0EB", "#FAFBFC"] },
+      { "file": "approved/gallery.html", "version": 1, "label": "Gallery", "colors": ["#0B1D3B", "#006BA5", "#F5F0EB", "#FAFBFC"] },
+      { "file": "approved/blog.html", "version": 1, "label": "Blog", "colors": ["#0B1D3B", "#006BA5", "#F5F0EB", "#FAFBFC"] }
+    ]
+  },
+  "tokens": {
+    "colors": {
+      "primary": "#006BA5",
+      "secondary": "#0B1D3B",
+      "accent": "#F5F0EB",
+      "light": { "background": "#FAFBFC", "surface": "#F0F2F5" },
+      "dark": { "background": "#0F1923", "surface": "#162231" }
+    },
+    "typography": {
+      "heading": { "family": "Outfit" },
+      "body": { "family": "Nunito" }
+    },
+    "spacing": { "density": "generous" },
+    "motion": { "level": "subtle" }
+  },
+  "themeSlugs": ["saltwater-sudz"]
+}
