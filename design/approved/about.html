@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Saltwater Sudz LLC | Mobile Detailing Bluffton SC</title>
 <meta name="description" content="Saltwater Sudz is a locally owned mobile car detailing business in Bluffton, SC. Owner Ryan Haag brings professional detailing to your home or office across the Lowcountry.">
+<link rel="canonical" href="https://saltwatersudzllc.com/about">
+<meta property="og:type" content="website">
+<meta property="og:title" content="About Saltwater Sudz LLC | Mobile Detailing Bluffton SC">
+<meta property="og:description" content="Saltwater Sudz is a locally owned mobile car detailing business in Bluffton, SC. Owner Ryan Haag brings professional detailing to your home or office.">
+<meta property="og:url" content="https://saltwatersudzllc.com/about">
+<meta property="og:site_name" content="Saltwater Sudz LLC">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About Saltwater Sudz LLC | Mobile Detailing Bluffton SC">
+<meta name="twitter:description" content="Saltwater Sudz is a locally owned mobile car detailing business in Bluffton, SC. Owner Ryan Haag brings professional detailing to your home or office.">
+<meta name="geo.region" content="US-SC">
+<meta name="geo.placename" content="Bluffton">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,6 +53,8 @@ a { text-decoration: none; }
 .header-inner { max-width:var(--wide-size); margin:0 auto; padding:0 var(--space-md); display:flex; align-items:center; justify-content:space-between; height:72px; }
 .logo { font-family:var(--font-heading); font-size:1.35rem; font-weight:800; color:var(--navy); letter-spacing:-0.02em; text-decoration:none; }
 .logo span { color:var(--cta-bg); }
+.logo img { height:48px; width:auto; display:block; }
+.footer-brand .logo img { height:36px; }
 .nav-links { display:flex; align-items:center; gap:var(--space-lg); list-style:none; }
 .nav-links a { font-family:var(--font-heading); font-size:0.88rem; font-weight:500; color:var(--text-body); text-decoration:none; transition:color 0.25s ease; }
 .nav-links a:hover,.nav-links a.active { color:var(--cta-bg); }
@@ -104,6 +118,11 @@ a { text-decoration: none; }
   height: 420px;
   position: relative;
   overflow: hidden;
+}
+.about-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .about-visual::after {
   content: '';
@@ -246,13 +265,48 @@ a { text-decoration: none; }
   .trust-badges { flex-direction:column; align-items:center; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "mainEntity": {
+    "@type": "AutoRepair",
+    "name": "Saltwater Sudz LLC",
+    "description": "Locally owned mobile car detailing business in Bluffton, SC, founded by Ryan Haag. Premium detailing services using top-of-the-line products including GTechniq ceramic coatings.",
+    "url": "https://saltwatersudzllc.com/",
+    "telephone": "+18039840245",
+    "email": "Saltwatersudzllc@outlook.com",
+    "foundingDate": "2025-08",
+    "founder": {
+      "@type": "Person",
+      "name": "Ryan Haag",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of South Carolina"
+      }
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bluffton",
+      "addressRegion": "SC",
+      "addressCountry": "US"
+    },
+    "slogan": "Southern Shine, Every Time",
+    "sameAs": [
+      "https://www.instagram.com/saltwatersudzllc",
+      "https://www.facebook.com/saltwatersudzllc",
+      "https://autodetailingbluffton.com"
+    ]
+  }
+}
+</script>
 </head>
 <body>
 
 <!-- HEADER -->
 <header class="site-header" id="site-header">
   <div class="header-inner">
-    <a href="homepage.html" class="logo">Saltwater <span>Sudz</span></a>
+    <a href="homepage.html" class="logo"><img src="images/saltwater-sudz-logo.png" alt="Saltwater Sudz - Mobile Detailing"></a>
     <nav>
       <ul class="nav-links" id="nav-links">
         <li><a href="homepage.html">Home</a></li>
@@ -293,6 +347,7 @@ a { text-decoration: none; }
   <div class="wide-width">
     <div class="about-split">
       <div class="about-visual reveal">
+        <img src="images/headshot.png" alt="Ryan Haag, owner of Saltwater Sudz LLC mobile detailing in Bluffton, SC" loading="lazy">
         <div class="about-visual__text">Ryan Haag, Owner<br>Saltwater Sudz LLC<br>Bluffton, SC</div>
       </div>
       <div class="about-text reveal reveal-d1">
@@ -388,13 +443,10 @@ a { text-decoration: none; }
     <p style="font-family:var(--font-body); font-size:0.95rem; color:var(--text-muted); margin-bottom:var(--space-md); max-width:50ch; margin-left:auto; margin-right:auto;" class="reveal">We proudly serve communities across the South Carolina Lowcountry.</p>
     <div class="area-tags reveal">
       <a href="service-area.html#bluffton" class="area-tag">Bluffton, SC</a>
-      <a href="service-area.html#hilton-head" class="area-tag">Hilton Head Island, SC</a>
-      <a href="service-area.html#okatie" class="area-tag">Okatie, SC</a>
       <a href="service-area.html#hardeeville" class="area-tag">Hardeeville, SC</a>
-      <a href="service-area.html#beaufort" class="area-tag">Beaufort, SC</a>
+      <a href="service-area.html#okatie" class="area-tag">Okatie, SC</a>
       <a href="service-area.html#sun-city" class="area-tag">Sun City, SC</a>
       <a href="service-area.html#palmetto-bluff" class="area-tag">Palmetto Bluff</a>
-      <a href="service-area.html#port-royal" class="area-tag">Port Royal, SC</a>
     </div>
   </div>
 </section>
@@ -411,7 +463,7 @@ a { text-decoration: none; }
   <div class="wide-width">
     <div class="cta-banner reveal">
       <h3>Ready to Experience the Difference?</h3>
-      <p>Book your mobile detail with Saltwater Sudz. We will come to you in Bluffton, Hilton Head, or anywhere across the Lowcountry.</p>
+      <p>Book your mobile detail with Saltwater Sudz. We will come to you in Bluffton, Hardeeville, or anywhere across the Lowcountry.</p>
       <div style="display:flex; gap:var(--space-sm); justify-content:center; flex-wrap:wrap; position:relative; z-index:1;">
         <a href="contact.html" class="btn btn--primary">Book Your Detail</a>
         <a href="services.html" class="btn btn--secondary" style="color:#FFFFFF; border-color:rgba(255,255,255,0.3);">View Services</a>
@@ -432,13 +484,13 @@ a { text-decoration: none; }
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="homepage.html" class="logo">Saltwater <span>Sudz</span></a>
+        <a href="homepage.html" class="logo"><img src="images/saltwater-sudz-logo.png" alt="Saltwater Sudz - Mobile Detailing"></a>
         <p>Premium mobile car detailing in Bluffton, SC. Locally owned and operated by Ryan Haag.</p>
-        <p style="font-size:0.85rem;">Bluffton, SC<br>Phone: <a href="tel:XXX-XXX-XXXX" style="color:#3399DD;text-decoration:none;">XXX-XXX-XXXX</a></p>
+        <p style="font-size:0.85rem;">Bluffton, SC<br>Phone: <a href="tel:8039840245" style="color:#3399DD;text-decoration:none;">(803) 984-0245</a></p>
       </div>
       <div class="footer-col"><h4>Navigation</h4><ul><li><a href="homepage.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html#exterior">Exterior Detail</a></li><li><a href="services.html#interior">Interior Detail</a></li><li><a href="services.html#full-detail">Full Detail</a></li><li><a href="services.html#upgrades">Upgrades</a></li></ul></div>
-      <div class="footer-col"><h4>Service Areas</h4><ul><li><a href="service-area.html#bluffton">Bluffton</a></li><li><a href="service-area.html#hilton-head">Hilton Head Island</a></li><li><a href="service-area.html#beaufort">Beaufort</a></li><li><a href="service-area.html">View All Areas</a></li></ul></div>
+      <div class="footer-col"><h4>Service Areas</h4><ul><li><a href="service-area.html#bluffton">Bluffton</a></li><li><a href="service-area.html#hardeeville">Hardeeville</a></li><li><a href="service-area.html#okatie">Okatie</a></li><li><a href="service-area.html">View All Areas</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 Saltwater Sudz LLC. All rights reserved.</p>
@@ -446,9 +498,9 @@ a { text-decoration: none; }
         <span class="payment-icon">Visa</span><span class="payment-icon">MC</span><span class="payment-icon">Amex</span><span class="payment-icon">Discover</span><span class="payment-icon">JCB</span><span class="payment-icon">Apple Pay</span><span class="payment-icon">Google Pay</span><span class="payment-icon">CashApp</span>
       </div>
       <div class="footer-social">
-        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-        <a href="#" aria-label="Google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></a>
+        <a href="https://www.facebook.com/saltwatersudzllc" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/saltwatersudzllc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://autodetailingbluffton.com" aria-label="Google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></a>
       </div>
     </div>
   </div>

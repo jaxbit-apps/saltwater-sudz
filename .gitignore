@@ -12,3 +12,9 @@ available-site-translations.json
 
 # Node
 node_modules/
+
+# Source images (too large for git)
+Images/
+
+# Tool metadata
+.superpowers/
