@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 - Page Not Found | Saltwater Sudz LLC</title>
+<meta name="description" content="The page you're looking for doesn't exist. Return to Saltwater Sudz LLC for premium mobile car detailing in Bluffton, SC.">
+<link rel="icon" type="image/png" href="images/saltwater-sudz-logo.png">
+<link rel="apple-touch-icon" href="images/saltwater-sudz-logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* =================================================================
+   CSS CUSTOM PROPERTIES
+   ================================================================= */
+:root {
+  --navy: #0B1D3B;
+  --teal-blue: #006BA5;
+  --teal-blue-hover: #005A8C;
+  --sand: #F5F0EB;
+  --warm-charcoal: #2D3436;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+  --body-size: 17px;
+  --line-height: 1.65;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-pill: 50px;
+  --wide-size: 1280px;
+  --cta-bg: #006BA5;
+  --cta-bg-hover: #005A8C;
+  --cta-text: #FFFFFF;
+}
+
+/* =================================================================
+   RESET + BASE
+   ================================================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: var(--line-height);
+  color: var(--warm-charcoal);
+  background-color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; }
+
+/* =================================================================
+   STICKY HEADER
+   ================================================================= */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(11, 29, 59, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 20px rgba(11, 29, 59, 0.3);
+}
+.header-inner {
+  max-width: var(--wide-size);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+.logo img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.25s ease;
+  letter-spacing: 0.01em;
+}
+.nav-links a:hover {
+  color: #fff;
+}
+.nav-cta {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  background: var(--cta-bg);
+  color: var(--cta-text);
+  padding: 10px 24px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+.nav-cta::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.5s ease;
+}
+.nav-cta:hover {
+  background: var(--cta-bg-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 107, 165, 0.3);
+}
+.nav-cta:hover::after { left: 100%; }
+
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* =================================================================
+   404 CONTENT
+   ================================================================= */
+.error-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(72px + var(--space-xl)) var(--space-md) var(--space-xl);
+  background: linear-gradient(165deg, var(--navy) 0%, #0F2847 40%, #133158 70%, var(--teal-blue) 100%);
+  color: #fff;
+}
+.error-content {
+  max-width: 600px;
+}
+.error-code {
+  font-family: var(--font-heading);
+  font-size: clamp(6rem, 18vw, 10rem);
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.12);
+  letter-spacing: -0.04em;
+  margin-bottom: var(--space-xs);
+}
+.error-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: var(--space-sm);
+}
+.error-message {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: var(--space-lg);
+  line-height: 1.7;
+}
+.error-buttons {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  background: var(--cta-bg);
+  color: var(--cta-text);
+  padding: 14px 32px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: inline-block;
+}
+.btn-primary:hover {
+  background: var(--cta-bg-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 107, 165, 0.3);
+}
+.btn-secondary {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  background: transparent;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: var(--radius-md);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: inline-block;
+}
+.btn-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+/* =================================================================
+   FOOTER
+   ================================================================= */
+.site-footer {
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.55);
+  padding: var(--space-md) 0;
+  text-align: center;
+  font-size: 0.85rem;
+}
+.site-footer p {
+  margin: 0;
+}
+
+/* =================================================================
+   RESPONSIVE
+   ================================================================= */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 72px; left: 0; right: 0;
+    background: rgba(11, 29, 59, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: var(--space-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    gap: var(--space-sm);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><picture><source srcset="images/saltwater-sudz-logo.webp" type="image/webp"><img src="images/saltwater-sudz-logo.png" alt="Saltwater Sudz - Mobile Detailing"></picture></a>
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="service-area.html">Service Areas</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="contact.html" class="nav-cta">Book Now</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- 404 CONTENT -->
+<section class="error-section">
+  <div class="error-content">
+    <div class="error-code">404</div>
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-message">Sorry, the page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+    <div class="error-buttons">
+      <a href="index.html" class="btn-primary">Back to Home</a>
+      <a href="contact.html" class="btn-secondary">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>&copy; 2026 Saltwater Sudz LLC</p>
+</footer>
+
+<script>
+// Mobile nav toggle
+document.getElementById('nav-toggle').addEventListener('click', function() {
+  document.getElementById('nav-links').classList.toggle('open');
+});
+document.querySelectorAll('#nav-links a').forEach(function(link){link.addEventListener('click',function(){document.getElementById('nav-links').classList.remove('open')})});
+</script>
+</body>
+</html>

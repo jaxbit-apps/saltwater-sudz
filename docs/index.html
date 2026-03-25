@@ -3,8 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Saltwater Sudz LLC | Premium Mobile Detailing in Bluffton, SC</title>
-<meta name="description" content="Premium mobile car detailing in Bluffton, SC. We come to you. Exterior, interior, and full detail services. 15 five-star Google reviews. Book today.">
+<title>Mobile Car Detailing Bluffton SC | Saltwater Sudz LLC</title>
+<meta name="description" content="Premium mobile car detailing in Bluffton, SC. We come to you. Exterior, interior, and full detail services. 14 five-star Google reviews. Book today.">
+<link rel="canonical" href="https://saltwatersudzllc.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mobile Car Detailing Bluffton SC | Saltwater Sudz LLC">
+<meta property="og:description" content="Premium mobile car detailing in Bluffton, SC. We come to you. Exterior, interior, and full detail services. 5-star rated. Book today.">
+<meta property="og:url" content="https://saltwatersudzllc.com/">
+<meta property="og:site_name" content="Saltwater Sudz LLC">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mobile Car Detailing Bluffton SC | Saltwater Sudz LLC">
+<meta name="twitter:description" content="Premium mobile car detailing in Bluffton, SC. We come to you. Exterior, interior, and full detail services. 5-star rated. Book today.">
+<meta property="og:image" content="https://saltwatersudzllc.com/images/saltwater-sudz-logo.png">
+<meta name="twitter:image" content="https://saltwatersudzllc.com/images/saltwater-sudz-logo.png">
+<meta name="geo.region" content="US-SC">
+<meta name="geo.placename" content="Bluffton">
+<link rel="icon" type="image/png" href="images/saltwater-sudz-logo.png">
+<link rel="apple-touch-icon" href="images/saltwater-sudz-logo.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,16 +116,20 @@ a { text-decoration: none; }
    STICKY HEADER
    ================================================================= */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(11, 29, 59, 0.15);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--divider);
-  transition: box-shadow 0.3s ease;
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 .site-header.scrolled {
-  box-shadow: 0 2px 20px rgba(11, 29, 59, 0.08);
+  background: rgba(11, 29, 59, 0.95);
+  box-shadow: 0 2px 20px rgba(11, 29, 59, 0.3);
 }
 .header-inner {
   max-width: var(--wide-size);
@@ -131,6 +151,14 @@ a { text-decoration: none; }
 .logo span {
   color: var(--cta-bg);
 }
+.logo img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+.footer-brand .logo img {
+  height: 36px;
+}
 .nav-links {
   display: flex;
   align-items: center;
@@ -141,16 +169,16 @@ a { text-decoration: none; }
   font-family: var(--font-heading);
   font-size: 0.88rem;
   font-weight: 500;
-  color: var(--text-body);
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   transition: color 0.25s ease;
   letter-spacing: 0.01em;
 }
 .nav-links a:hover {
-  color: var(--cta-bg);
+  color: #fff;
 }
 .nav-links a.active {
-  color: var(--cta-bg);
+  color: #fff;
   font-weight: 600;
 }
 .nav-cta {
@@ -196,61 +224,37 @@ a { text-decoration: none; }
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--text-primary);
+  background: #fff;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
 /* =================================================================
-   HERO -- Full viewport navy gradient (Coastal Scroll)
+   HERO -- Full viewport photo background
    ================================================================= */
 .hero {
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(160deg, var(--navy) 0%, #142E54 50%, #1A3A5C 100%);
   overflow: hidden;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   padding: clamp(6rem, 14vw, 10rem) var(--space-md) clamp(8rem, 16vw, 12rem);
 }
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -30%; right: -10%;
-  width: 60%; height: 120%;
-  background: radial-gradient(ellipse, rgba(0, 107, 165, 0.2) 0%, transparent 70%);
-  pointer-events: none;
-}
-.hero::after {
-  content: '';
+.hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  opacity: var(--grain-opacity);
-  pointer-events: none;
+  background-image: url('images/hero-bg.webp');
+  background-image: image-set(url('images/hero-bg.webp') type('image/webp'), url('images/hero-bg.jpg') type('image/jpeg'));
+  background-size: cover;
+  background-position: center;
 }
-.hero-orb {
+.hero-overlay {
   position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-.hero-orb--1 {
-  width: 200px; height: 200px;
-  top: 10%; right: 8%;
-  background: radial-gradient(circle, rgba(51, 153, 221, 0.12) 0%, transparent 70%);
-  animation: floatGentle 10s ease-in-out infinite;
-}
-.hero-orb--2 {
-  width: 120px; height: 120px;
-  bottom: 20%; right: 25%;
-  background: radial-gradient(circle, rgba(0, 107, 165, 0.08) 0%, transparent 70%);
-  animation: floatGentle 14s ease-in-out infinite reverse;
-}
-.hero-orb--3 {
-  width: 80px; height: 80px;
-  top: 30%; right: 35%;
-  background: radial-gradient(circle, rgba(245, 240, 235, 0.06) 0%, transparent 70%);
-  animation: floatGentle 8s ease-in-out infinite;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(11, 29, 59, 0.88) 0%, rgba(11, 29, 59, 0.65) 35%, rgba(11, 29, 59, 0.25) 60%, rgba(11, 29, 59, 0.1) 100%),
+    linear-gradient(180deg, rgba(11, 29, 59, 0.5) 0%, transparent 25%),
+    linear-gradient(0deg, rgba(11, 29, 59, 0.5) 0%, transparent 15%);
 }
 .hero-content {
   position: relative;
@@ -280,6 +284,7 @@ a { text-decoration: none; }
   text-wrap: balance;
   margin-bottom: var(--space-md);
   max-width: 700px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
   opacity: 0;
   animation: fadeUp 0.8s 0.35s forwards;
 }
@@ -287,10 +292,11 @@ a { text-decoration: none; }
   font-family: var(--font-body);
   font-size: 1.1rem;
   line-height: 1.6;
-  color: rgba(232, 236, 240, 0.8);
+  color: rgba(232, 236, 240, 0.9);
   max-width: 52ch;
   text-wrap: pretty;
   margin-bottom: var(--space-lg);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.4);
   opacity: 0;
   animation: fadeUp 0.8s 0.5s forwards;
 }
@@ -404,7 +410,7 @@ a { text-decoration: none; }
 /* Hero-specific buttons */
 .hero-btn--primary {
   background: #3399DD;
-  color: #0F1923;
+  color: #FFFFFF;
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.95rem;
@@ -581,6 +587,11 @@ a { text-decoration: none; }
   position: relative;
   overflow: hidden;
 }
+.card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .card__image--exterior {
   background: linear-gradient(135deg, var(--cta-bg), #00A5CF);
 }
@@ -739,6 +750,11 @@ a { text-decoration: none; }
   height: 360px;
   position: relative;
   overflow: hidden;
+}
+.about-teaser__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .about-teaser__visual::after {
   content: '';
@@ -1021,10 +1037,12 @@ a { text-decoration: none; }
     flex-direction: column;
     position: absolute;
     top: 72px; left: 0; right: 0;
-    background: #FFFFFF;
+    background: rgba(11, 29, 59, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: var(--space-md);
-    border-bottom: 1px solid var(--divider);
-    box-shadow: 0 8px 24px rgba(11, 29, 59, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     gap: var(--space-sm);
   }
   .card-grid,
@@ -1045,10 +1063,66 @@ a { text-decoration: none; }
   }
   .hero {
     min-height: 85vh;
-    padding-top: clamp(5rem, 12vw, 8rem);
+    padding-top: clamp(6rem, 14vw, 9rem);
   }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Saltwater Sudz LLC",
+  "description": "Premium mobile car detailing in Bluffton, SC. Exterior, interior, and full detail services.",
+  "url": "https://saltwatersudzllc.com/",
+  "telephone": "+18039840245",
+  "email": "Saltwatersudzllc@outlook.com",
+  "areaServed": [
+    {"@type": "City", "name": "Bluffton", "address": {"@type": "PostalAddress", "addressRegion": "SC"}},
+    {"@type": "City", "name": "Hardeeville", "address": {"@type": "PostalAddress", "addressRegion": "SC"}},
+    {"@type": "City", "name": "Okatie", "address": {"@type": "PostalAddress", "addressRegion": "SC"}},
+    {"@type": "Place", "name": "Sun City Hilton Head", "address": {"@type": "PostalAddress", "addressRegion": "SC"}},
+    {"@type": "Place", "name": "Palmetto Bluff", "address": {"@type": "PostalAddress", "addressRegion": "SC"}}
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bluffton",
+    "addressRegion": "SC",
+    "addressCountry": "US"
+  },
+  "openingHours": "Mo-Fr 08:00-17:00",
+  "priceRange": "$$",
+  "image": "https://saltwatersudzllc.com/images/saltwater-sudz-logo.png",
+  "sameAs": [
+    "https://www.instagram.com/saltwatersudzllc",
+    "https://www.facebook.com/profile.php?id=61583352191798",
+    "https://autodetailingbluffton.com",
+    "https://www.linkedin.com/in/ryan-haag-839842173/"
+  ],
+  "slogan": "Southern Shine, Every Time",
+  "founder": {
+    "@type": "Person",
+    "name": "Ryan Haag"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Mobile Detailing Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exterior Detail"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Interior Detail"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Full Detail"}}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saltwatersudzllc.com/"}
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -1057,7 +1131,7 @@ a { text-decoration: none; }
      ============================================= -->
 <header class="site-header" id="site-header">
   <div class="header-inner">
-    <a href="index.html" class="logo">Saltwater <span>Sudz</span></a>
+    <a href="index.html" class="logo"><picture><source srcset="images/saltwater-sudz-logo.webp" type="image/webp"><img src="images/saltwater-sudz-logo.png" alt="Saltwater Sudz - Mobile Detailing"></picture></a>
     <nav>
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
@@ -1068,7 +1142,7 @@ a { text-decoration: none; }
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
-    <a href="contact.html" class="nav-cta">Book Now</a>
+    <a href="https://book.squareup.com/appointments/xz1810zkjn2k3d/location/L4EN8XQRPNJAH/services" class="nav-cta">Book Now</a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
     </button>
@@ -1076,19 +1150,18 @@ a { text-decoration: none; }
 </header>
 
 <!-- =============================================
-     HERO -- Full Viewport Navy Gradient
+     HERO -- Full Viewport Photo Background
      ============================================= -->
 <section class="hero">
-  <div class="hero-orb hero-orb--1"></div>
-  <div class="hero-orb hero-orb--2"></div>
-  <div class="hero-orb hero-orb--3"></div>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
 
   <div class="hero-content">
     <p class="hero-tagline">Bluffton's Trusted Mobile Detailer</p>
-    <h1 class="hero-title">Premium Mobile Detailing. We Come to You.</h1>
-    <p class="hero-subtitle">Saltwater Sudz brings showroom-quality detailing to your driveway, office, or wherever you park. Serving the Lowcountry with 15 five-star Google reviews and counting.</p>
+    <h1 class="hero-title">Premium Mobile Car Detailing in Bluffton, SC</h1>
+    <p class="hero-subtitle">Saltwater Sudz brings showroom-quality detailing to your driveway, office, or wherever you park. Serving the Lowcountry with 14 five-star Google reviews and counting.</p>
     <div class="hero-buttons">
-      <a href="contact.html" class="hero-btn--primary">Book Your Appointment</a>
+      <a href="https://book.squareup.com/appointments/xz1810zkjn2k3d/location/L4EN8XQRPNJAH/services" class="hero-btn--primary">Book Your Appointment</a>
       <a href="services.html" class="hero-btn--outline">View Services</a>
     </div>
   </div>
@@ -1164,6 +1237,10 @@ a { text-decoration: none; }
     <div class="card-grid">
       <article class="card reveal reveal-d1">
         <div class="card__image card__image--exterior">
+          <picture>
+            <source srcset="images/exterior.webp" type="image/webp">
+            <img src="images/exterior.jpeg" alt="Professional exterior car detailing by Saltwater Sudz in Bluffton, SC" width="1200" height="800" loading="lazy">
+          </picture>
           <span class="card__tag">Exterior</span>
         </div>
         <div class="card__body">
@@ -1176,6 +1253,10 @@ a { text-decoration: none; }
 
       <article class="card reveal reveal-d2">
         <div class="card__image card__image--interior">
+          <picture>
+            <source srcset="images/Interior.webp" type="image/webp">
+            <img src="images/Interior.jpeg" alt="Professional interior car detailing by Saltwater Sudz in Bluffton, SC" width="1200" height="801" loading="lazy">
+          </picture>
           <span class="card__tag">Interior</span>
         </div>
         <div class="card__body">
@@ -1188,12 +1269,16 @@ a { text-decoration: none; }
 
       <article class="card reveal reveal-d3">
         <div class="card__image card__image--full">
+          <picture>
+            <source srcset="images/exterior-full-package.webp" type="image/webp">
+            <img src="images/exterior-full-package.jpeg" alt="Full interior and exterior car detail by Saltwater Sudz in Bluffton, SC" width="1200" height="800" loading="lazy">
+          </picture>
           <span class="card__tag">Most Popular</span>
         </div>
         <div class="card__body">
           <h3 class="card__title">Full Detail</h3>
           <p class="card__desc">The complete package. Every interior and exterior service combined for a showroom-quality finish from top to bottom.</p>
-          <p class="card__price">Price varies <span>/ free quotes</span></p>
+          <p class="card__price">$80/hr <span>/ price varies</span></p>
           <a href="services.html#full-detail" class="card__cta">View details <span class="card__cta-arrow">&rarr;</span></a>
         </div>
       </article>
@@ -1215,12 +1300,16 @@ a { text-decoration: none; }
   <div class="wide-width">
     <div class="about-teaser">
       <div class="about-teaser__visual reveal">
+        <picture>
+          <source srcset="images/handshake.webp" type="image/webp">
+          <img src="images/handshake.jpg" alt="Saltwater Sudz — locally owned mobile detailing team in Bluffton, SC" width="1200" height="868" loading="lazy">
+        </picture>
         <div class="about-teaser__visual-text">Locally owned.<br>Quality-driven.<br>Built on trust.</div>
       </div>
       <div class="about-teaser__content reveal reveal-d1">
         <p class="section-label" style="text-align: left;">About Saltwater Sudz</p>
         <h2>Bluffton's Own Mobile Detailing Team</h2>
-        <p>Saltwater Sudz was founded by Ryan Haag right here in Bluffton, SC. What started with a passion for cars and a commitment to quality has grown into the Lowcountry's go-to mobile detailing service. With 15 five-star Google reviews, the reputation speaks for itself.</p>
+        <p>Saltwater Sudz was founded by Ryan Haag right here in Bluffton, SC. What started with a passion for cars and a commitment to quality has grown into the Lowcountry's go-to mobile detailing service. With 14 five-star Google reviews, the reputation speaks for itself.</p>
         <p>We are fully licensed and insured, and we bring everything we need directly to your home or office. No drop-offs, no waiting rooms -- just exceptional results, right where you are.</p>
         <a href="about.html">Read our full story &rarr;</a>
       </div>
@@ -1241,7 +1330,7 @@ a { text-decoration: none; }
 <section class="section">
   <div class="wide-width">
     <p class="section-label reveal">What Our Customers Say</p>
-    <h2 class="section-title reveal">15 Five-Star Google Reviews</h2>
+    <h2 class="section-title reveal">14 Five-Star Google Reviews</h2>
     <p class="section-subtitle reveal">Real reviews from real customers across the Lowcountry. Here is what people are saying about Saltwater Sudz.</p>
 
     <div class="testimonial-grid">
@@ -1253,8 +1342,8 @@ a { text-decoration: none; }
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        <p class="testimonial-text">"Ryan did an incredible job on my SUV. The interior looked brand new after years of kids and dog hair. He was on time, professional, and the results blew me away. Highly recommend Saltwater Sudz to anyone in Bluffton."</p>
-        <p class="testimonial-author">Sarah M.</p>
+        <p class="testimonial-text">"Ryan is 5 star!! You will think your car is brand new after he finishes cleaning it! He did an excellent job on my husband's SUV. He is very meticulous and won't miss a thing! He will come to your house at your convenience and he is always responsive! We love Ryan!"</p>
+        <p class="testimonial-author">Diane Z.</p>
         <p class="testimonial-source">Google Review</p>
       </div>
 
@@ -1266,8 +1355,8 @@ a { text-decoration: none; }
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        <p class="testimonial-text">"Best detailing experience I have had. Ryan came to my office in Hilton Head and had my truck looking showroom-ready by the end of the day. The convenience of mobile detailing is unbeatable."</p>
-        <p class="testimonial-author">Mike T.</p>
+        <p class="testimonial-text">"Ryan detailed my F150 before I listed it for sale. It turned out better than I expected! His communication before, during, and after were spot on. So thankful for his hard work, honesty, and attention to detail! I will definitely hire Saltwater Sudz in the future."</p>
+        <p class="testimonial-author">Shawn M.</p>
         <p class="testimonial-source">Google Review</p>
       </div>
 
@@ -1279,8 +1368,8 @@ a { text-decoration: none; }
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        <p class="testimonial-text">"I have been using Saltwater Sudz every month for the past year. Ryan is thorough, trustworthy, and takes real pride in his work. My car has never looked better. Worth every penny."</p>
-        <p class="testimonial-author">Jennifer L.</p>
+        <p class="testimonial-text">"Ryan is worth every penny he charges! My F150 Tremor looks fantastic, inside and out, when Ryan finishes, because he uses superior products and because he takes the time to be very thorough. You can't go wrong trusting Ryan!"</p>
+        <p class="testimonial-author">Rick Z.</p>
         <p class="testimonial-source">Google Review</p>
       </div>
     </div>
@@ -1305,13 +1394,10 @@ a { text-decoration: none; }
 
     <div class="service-area-list reveal">
       <a href="service-area.html#bluffton" class="service-area-tag">Bluffton, SC</a>
-      <a href="service-area.html#hilton-head" class="service-area-tag">Hilton Head Island, SC</a>
-      <a href="service-area.html#okatie" class="service-area-tag">Okatie, SC</a>
       <a href="service-area.html#hardeeville" class="service-area-tag">Hardeeville, SC</a>
-      <a href="service-area.html#beaufort" class="service-area-tag">Beaufort, SC</a>
+      <a href="service-area.html#okatie" class="service-area-tag">Okatie, SC</a>
       <a href="service-area.html#sun-city" class="service-area-tag">Sun City, SC</a>
       <a href="service-area.html#palmetto-bluff" class="service-area-tag">Palmetto Bluff</a>
-      <a href="service-area.html#port-royal" class="service-area-tag">Port Royal, SC</a>
     </div>
   </div>
 </section>
@@ -1330,10 +1416,10 @@ a { text-decoration: none; }
   <div class="wide-width">
     <div class="final-cta reveal">
       <h2 class="final-cta__title">Ready for a Showroom Shine?</h2>
-      <p class="final-cta__subtitle">Book your mobile detail today. We bring everything we need right to your door in Bluffton, Hilton Head, and the entire Lowcountry.</p>
-      <a href="tel:XXX-XXX-XXXX" class="final-cta__phone">Call XXX-XXX-XXXX</a>
+      <p class="final-cta__subtitle">Book your mobile detail today. We bring everything we need right to your door in Bluffton, Hardeeville, and across the Lowcountry.</p>
+      <a href="tel:8039840245" class="final-cta__phone">Call (803) 984-0245</a>
       <div class="final-cta__buttons">
-        <a href="contact.html" class="hero-btn--primary">Book via Square Appointments</a>
+        <a href="https://book.squareup.com/appointments/xz1810zkjn2k3d/location/L4EN8XQRPNJAH/services" class="hero-btn--primary">Book via Square Appointments</a>
         <a href="services.html" class="hero-btn--outline">View All Services</a>
       </div>
     </div>
@@ -1347,9 +1433,9 @@ a { text-decoration: none; }
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo">Saltwater <span>Sudz</span></a>
+        <a href="index.html" class="logo"><picture><source srcset="images/saltwater-sudz-logo.webp" type="image/webp"><img src="images/saltwater-sudz-logo.png" alt="Saltwater Sudz - Mobile Detailing"></picture></a>
         <p>Premium mobile car detailing in Bluffton, SC. Locally owned and operated by Ryan Haag. Fully licensed and insured.</p>
-        <p style="font-size: 0.85rem;">Bluffton, SC<br>Phone: <a href="tel:XXX-XXX-XXXX" style="color: #3399DD; text-decoration: none;">XXX-XXX-XXXX</a></p>
+        <p style="font-size: 0.85rem;">Bluffton, SC<br>Phone: <a href="tel:8039840245" style="color: #3399DD; text-decoration: none;">(803) 984-0245</a></p>
       </div>
 
       <div class="footer-col">
@@ -1377,8 +1463,8 @@ a { text-decoration: none; }
         <h4>Service Areas</h4>
         <ul>
           <li><a href="service-area.html#bluffton">Bluffton</a></li>
-          <li><a href="service-area.html#hilton-head">Hilton Head Island</a></li>
-          <li><a href="service-area.html#beaufort">Beaufort</a></li>
+          <li><a href="service-area.html#hardeeville">Hardeeville</a></li>
+          <li><a href="service-area.html#okatie">Okatie</a></li>
           <li><a href="service-area.html">View All Areas</a></li>
         </ul>
       </div>
@@ -1397,15 +1483,16 @@ a { text-decoration: none; }
         <span class="payment-icon">CashApp</span>
       </div>
       <div class="footer-social">
-        <a href="#" aria-label="Facebook">
+        <a href="https://www.facebook.com/profile.php?id=61583352191798" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
         </a>
-        <a href="#" aria-label="Instagram">
+        <a href="https://www.instagram.com/saltwatersudzllc" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </a>
-        <a href="#" aria-label="Google Business">
+        <a href="https://autodetailingbluffton.com" aria-label="Google Business" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </a>
+        <a href="https://www.linkedin.com/in/ryan-haag-839842173/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
       </div>
     </div>
   </div>
@@ -1416,6 +1503,7 @@ a { text-decoration: none; }
 document.getElementById('nav-toggle').addEventListener('click', function() {
   document.getElementById('nav-links').classList.toggle('open');
 });
+document.querySelectorAll('#nav-links a').forEach(function(link){link.addEventListener('click',function(){document.getElementById('nav-links').classList.remove('open')})});
 
 // Sticky header shadow on scroll
 window.addEventListener('scroll', function() {

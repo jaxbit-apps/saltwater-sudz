@@ -3,8 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us | Saltwater Sudz LLC - Book Mobile Detailing Bluffton SC</title>
+<title>Book Mobile Detailing Bluffton SC | Saltwater Sudz Contact</title>
 <meta name="description" content="Book your mobile car detailing appointment with Saltwater Sudz in Bluffton, SC. Call, email, or schedule online via Square Appointments. Serving the Lowcountry.">
+<link rel="canonical" href="https://saltwatersudzllc.com/contact">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Book Mobile Detailing Bluffton SC | Saltwater Sudz Contact">
+<meta property="og:description" content="Book your mobile car detailing appointment with Saltwater Sudz in Bluffton, SC. Call, email, or schedule online via Square Appointments.">
+<meta property="og:url" content="https://saltwatersudzllc.com/contact">
+<meta property="og:site_name" content="Saltwater Sudz LLC">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Book Mobile Detailing Bluffton SC | Saltwater Sudz Contact">
+<meta name="twitter:description" content="Book your mobile car detailing appointment with Saltwater Sudz in Bluffton, SC. Call, email, or schedule online via Square Appointments.">
+<meta property="og:image" content="https://saltwatersudzllc.com/images/saltwater-sudz-logo.png">
+<meta name="twitter:image" content="https://saltwatersudzllc.com/images/saltwater-sudz-logo.png">
+<meta name="geo.region" content="US-SC">
+<meta name="geo.placename" content="Bluffton">
+<link rel="icon" type="image/png" href="images/saltwater-sudz-logo.png">
+<link rel="apple-touch-icon" href="images/saltwater-sudz-logo.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,21 +51,23 @@ a{text-decoration:none}
 .wide-width{max-width:var(--wide-size);margin:0 auto;padding:0 var(--space-md)}
 
 /* HEADER */
-.site-header{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--divider)}
-.site-header.scrolled{box-shadow:0 2px 20px rgba(11,29,59,0.08)}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,29,59,0.15);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08);transition:background 0.3s ease, box-shadow 0.3s ease}
+.site-header.scrolled{background:rgba(11,29,59,0.95);box-shadow:0 2px 20px rgba(11,29,59,0.3)}
 .header-inner{max-width:var(--wide-size);margin:0 auto;padding:0 var(--space-md);display:flex;align-items:center;justify-content:space-between;height:72px}
 .logo{font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--navy);letter-spacing:-0.02em;text-decoration:none}
 .logo span{color:var(--cta-bg)}
+.logo img{height:48px;width:auto;display:block;}
+.footer-brand .logo img{height:36px;}
 .nav-links{display:flex;align-items:center;gap:var(--space-lg);list-style:none}
-.nav-links a{font-family:var(--font-heading);font-size:0.88rem;font-weight:500;color:var(--text-body);text-decoration:none;transition:color 0.25s ease}
-.nav-links a:hover,.nav-links a.active{color:var(--cta-bg)}
-.nav-links a.active{font-weight:600}
+.nav-links a{font-family:var(--font-heading);font-size:0.88rem;font-weight:500;color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.25s ease}
+.nav-links a:hover{color:#fff}
+.nav-links a.active{color:#fff;font-weight:600}
 .nav-cta{font-family:var(--font-heading);font-weight:600;font-size:0.88rem;background:var(--cta-bg);color:var(--cta-text);padding:10px 24px;border-radius:var(--radius-md);text-decoration:none;position:relative;overflow:hidden;transition:all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);display:inline-block}
 .nav-cta::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent);transition:left 0.5s ease}
 .nav-cta:hover{background:var(--cta-bg-hover);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,107,165,0.3)}
 .nav-cta:hover::after{left:100%}
 .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
-.nav-toggle span{display:block;width:24px;height:2px;background:var(--text-primary);border-radius:2px}
+.nav-toggle span{display:block;width:24px;height:2px;background:#fff;border-radius:2px}
 
 /* HERO */
 .hero{position:relative;background:linear-gradient(160deg,var(--navy) 0%,#142E54 50%,#1A3A5C 100%);overflow:hidden;padding:clamp(8rem,14vw,10rem) var(--space-md) clamp(4rem,8vw,6rem)}
@@ -99,6 +117,7 @@ a{text-decoration:none}
 .contact-card p{font-size:0.9rem;color:var(--text-muted);line-height:1.55;margin-bottom:var(--space-sm)}
 .contact-card a{color:var(--cta-bg);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px;transition:color 0.25s ease;font-weight:600}
 .contact-card a:hover{color:var(--cta-bg-hover)}
+.contact-card .btn--primary{color:#FFFFFF;text-decoration:none;position:relative;z-index:1}
 .contact-card .phone-link{font-family:var(--font-heading);font-size:1.3rem;font-weight:700;color:var(--cta-bg);text-decoration:none;display:inline-block;transition:color 0.25s ease}
 .contact-card .phone-link:hover{color:var(--cta-bg-hover)}
 
@@ -183,18 +202,69 @@ a{text-decoration:none}
 @media(max-width:768px){
   .nav-links{display:none}
   .nav-toggle{display:flex}
-  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:#FFFFFF;padding:var(--space-md);border-bottom:1px solid var(--divider);box-shadow:0 8px 24px rgba(11,29,59,0.08);gap:var(--space-sm)}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:rgba(11,29,59,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:var(--space-md);border-bottom:1px solid rgba(255,255,255,0.1);box-shadow:0 8px 24px rgba(0,0,0,0.3);gap:var(--space-sm)}
   .footer-grid{grid-template-columns:1fr;gap:var(--space-lg)}
   .footer-bottom{flex-direction:column;align-items:flex-start}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "Saltwater Sudz LLC",
+  "telephone": "+18039840245",
+  "email": "Saltwatersudzllc@outlook.com",
+  "url": "https://saltwatersudzllc.com/",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bluffton",
+    "addressRegion": "SC",
+    "addressCountry": "US"
+  },
+  "openingHours": "Mo-Fr 08:00-17:00",
+  "areaServed": [
+    {"@type": "City", "name": "Bluffton", "address": {"@type": "PostalAddress", "addressRegion": "SC"}},
+    {"@type": "City", "name": "Hardeeville", "address": {"@type": "PostalAddress", "addressRegion": "SC"}},
+    {"@type": "City", "name": "Okatie", "address": {"@type": "PostalAddress", "addressRegion": "SC"}},
+    {"@type": "Place", "name": "Sun City Hilton Head", "address": {"@type": "PostalAddress", "addressRegion": "SC"}},
+    {"@type": "Place", "name": "Palmetto Bluff", "address": {"@type": "PostalAddress", "addressRegion": "SC"}}
+  ],
+  "sameAs": [
+    "https://www.instagram.com/saltwatersudzllc",
+    "https://www.facebook.com/profile.php?id=61583352191798",
+    "https://autodetailingbluffton.com",
+    "https://www.linkedin.com/in/ryan-haag-839842173/"
+  ],
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://book.squareup.com/appointments/xz1810zkjn2k3d/location/L4EN8XQRPNJAH/services"
+    },
+    "result": {
+      "@type": "Reservation",
+      "name": "Book Mobile Detailing Appointment"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://saltwatersudzllc.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Contact", "item": "https://saltwatersudzllc.com/contact"}
+  ]
+}
+</script>
 </head>
 <body>
 
 <!-- HEADER -->
 <header class="site-header" id="site-header">
   <div class="header-inner">
-    <a href="index.html" class="logo">Saltwater <span>Sudz</span></a>
+    <a href="index.html" class="logo"><picture><source srcset="images/saltwater-sudz-logo.webp" type="image/webp"><img src="images/saltwater-sudz-logo.png" alt="Saltwater Sudz - Mobile Detailing"></picture></a>
     <nav>
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -205,7 +275,7 @@ a{text-decoration:none}
         <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </nav>
-    <a href="contact.html" class="nav-cta">Book Now</a>
+    <a href="https://book.squareup.com/appointments/xz1810zkjn2k3d/location/L4EN8XQRPNJAH/services" class="nav-cta">Book Now</a>
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -215,7 +285,7 @@ a{text-decoration:none}
   <div class="hero-orb hero-orb--1"></div>
   <div class="hero-content">
     <p class="hero-tagline">Get in Touch</p>
-    <h1 class="hero-title">Contact Us</h1>
+    <h1 class="hero-title">Book Your Mobile Detail</h1>
     <p class="hero-subtitle">Ready to book your mobile detail? Call us, schedule online, or send a message. We typically respond within a few hours during business days.</p>
   </div>
 </section>
@@ -232,6 +302,7 @@ a{text-decoration:none}
      ============================================= -->
 <section class="section">
   <div class="wide-width">
+    <h2 style="font-family:var(--font-heading);font-size:clamp(1.6rem,3vw,2.441rem);font-weight:700;line-height:1.15;color:var(--text-primary);text-align:center;margin-bottom:var(--space-xl);text-wrap:balance;" class="reveal">Ways to Reach Us</h2>
     <div class="contact-grid">
       <!-- LEFT: Contact Info -->
       <div class="contact-info">
@@ -241,7 +312,7 @@ a{text-decoration:none}
           </div>
           <h3>Call Us</h3>
           <p>Give us a call to discuss your detailing needs or schedule an appointment.</p>
-          <a href="tel:XXX-XXX-XXXX" class="phone-link">XXX-XXX-XXXX</a>
+          <a href="tel:8039840245" class="phone-link">(803) 984-0245</a>
         </div>
 
         <div class="contact-card reveal reveal-d1">
@@ -250,7 +321,7 @@ a{text-decoration:none}
           </div>
           <h3>Email Us</h3>
           <p>Send us an email and we will get back to you within a few hours.</p>
-          <a href="mailto:info@saltwatersudzsc.com">info@saltwatersudzsc.com</a>
+          <a href="mailto:Saltwatersudzllc@outlook.com">Saltwatersudzllc@outlook.com</a>
         </div>
 
         <div class="contact-card reveal reveal-d2">
@@ -259,7 +330,7 @@ a{text-decoration:none}
           </div>
           <h3>Book Online</h3>
           <p>Schedule your appointment directly through Square Appointments. Pick your service, date, and time.</p>
-          <a href="#" class="btn btn--primary" style="margin-top:var(--space-xs);">Book via Square Appointments</a>
+          <a href="https://book.squareup.com/appointments/xz1810zkjn2k3d/location/L4EN8XQRPNJAH/services" class="btn btn--primary" style="margin-top:var(--space-xs);">Book via Square Appointments</a>
         </div>
       </div>
 
@@ -268,7 +339,9 @@ a{text-decoration:none}
         <h3>Send a Message</h3>
         <p>Have a question or want a custom quote? Fill out the form below and we will be in touch.</p>
 
-        <form action="#" method="POST">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
           <div class="form-group">
             <label for="name">Full Name</label>
             <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -279,7 +352,7 @@ a{text-decoration:none}
           </div>
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="(XXX) XXX-XXXX">
+            <input type="tel" id="phone" name="phone" placeholder="(803) 984-0245">
           </div>
           <div class="form-group">
             <label for="service">Service Interested In</label>
@@ -318,11 +391,11 @@ a{text-decoration:none}
       <div class="info-box reveal">
         <h3>Hours of Operation</h3>
         <ul class="hours-list">
-          <li>Monday <span>8:00 AM - 6:00 PM</span></li>
-          <li>Tuesday <span>8:00 AM - 6:00 PM</span></li>
-          <li>Wednesday <span>8:00 AM - 6:00 PM</span></li>
-          <li>Thursday <span>8:00 AM - 6:00 PM</span></li>
-          <li>Friday <span>8:00 AM - 6:00 PM</span></li>
+          <li>Monday <span>8:00 AM - 5:00 PM</span></li>
+          <li>Tuesday <span>8:00 AM - 5:00 PM</span></li>
+          <li>Wednesday <span>8:00 AM - 5:00 PM</span></li>
+          <li>Thursday <span>8:00 AM - 5:00 PM</span></li>
+          <li>Friday <span>8:00 AM - 5:00 PM</span></li>
           <li>Saturday <span>Closed</span></li>
           <li>Sunday <span>Closed</span></li>
         </ul>
@@ -354,13 +427,10 @@ a{text-decoration:none}
         <p>We proudly serve the following communities in the SC Lowcountry:</p>
         <div class="area-tags">
           <a href="service-area.html#bluffton" class="area-tag">Bluffton</a>
-          <a href="service-area.html#hilton-head" class="area-tag">Hilton Head Island</a>
-          <a href="service-area.html#okatie" class="area-tag">Okatie</a>
           <a href="service-area.html#hardeeville" class="area-tag">Hardeeville</a>
-          <a href="service-area.html#beaufort" class="area-tag">Beaufort</a>
+          <a href="service-area.html#okatie" class="area-tag">Okatie</a>
           <a href="service-area.html#sun-city" class="area-tag">Sun City</a>
           <a href="service-area.html#palmetto-bluff" class="area-tag">Palmetto Bluff</a>
-          <a href="service-area.html#port-royal" class="area-tag">Port Royal</a>
         </div>
       </div>
     </div>
@@ -379,13 +449,13 @@ a{text-decoration:none}
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo">Saltwater <span>Sudz</span></a>
+        <a href="index.html" class="logo"><picture><source srcset="images/saltwater-sudz-logo.webp" type="image/webp"><img src="images/saltwater-sudz-logo.png" alt="Saltwater Sudz - Mobile Detailing"></picture></a>
         <p>Premium mobile car detailing in Bluffton, SC. Locally owned and operated by Ryan Haag.</p>
-        <p style="font-size:0.85rem;">Bluffton, SC<br>Phone: <a href="tel:XXX-XXX-XXXX" style="color:#3399DD;text-decoration:none;">XXX-XXX-XXXX</a></p>
+        <p style="font-size:0.85rem;">Bluffton, SC<br>Phone: <a href="tel:8039840245" style="color:#3399DD;text-decoration:none;">(803) 984-0245</a></p>
       </div>
       <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html#exterior">Exterior Detail</a></li><li><a href="services.html#interior">Interior Detail</a></li><li><a href="services.html#full-detail">Full Detail</a></li><li><a href="services.html#upgrades">Upgrades</a></li></ul></div>
-      <div class="footer-col"><h4>Service Areas</h4><ul><li><a href="service-area.html#bluffton">Bluffton</a></li><li><a href="service-area.html#hilton-head">Hilton Head Island</a></li><li><a href="service-area.html#beaufort">Beaufort</a></li><li><a href="service-area.html">View All Areas</a></li></ul></div>
+      <div class="footer-col"><h4>Service Areas</h4><ul><li><a href="service-area.html#bluffton">Bluffton</a></li><li><a href="service-area.html#hardeeville">Hardeeville</a></li><li><a href="service-area.html#okatie">Okatie</a></li><li><a href="service-area.html">View All Areas</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 Saltwater Sudz LLC. All rights reserved.</p>
@@ -393,9 +463,10 @@ a{text-decoration:none}
         <span class="payment-icon">Visa</span><span class="payment-icon">MC</span><span class="payment-icon">Amex</span><span class="payment-icon">Discover</span><span class="payment-icon">JCB</span><span class="payment-icon">Apple Pay</span><span class="payment-icon">Google Pay</span><span class="payment-icon">CashApp</span>
       </div>
       <div class="footer-social">
-        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-        <a href="#" aria-label="Google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61583352191798" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/saltwatersudzllc" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://autodetailingbluffton.com" aria-label="Google" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></a>
+        <a href="https://www.linkedin.com/in/ryan-haag-839842173/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
       </div>
     </div>
   </div>
@@ -403,6 +474,7 @@ a{text-decoration:none}
 
 <script>
 document.getElementById('nav-toggle').addEventListener('click',function(){document.getElementById('nav-links').classList.toggle('open')});
+document.querySelectorAll('#nav-links a').forEach(function(link){link.addEventListener('click',function(){document.getElementById('nav-links').classList.remove('open')})});
 window.addEventListener('scroll',function(){var h=document.getElementById('site-header');if(window.scrollY>10){h.classList.add('scrolled')}else{h.classList.remove('scrolled')}});
 var revealElements=document.querySelectorAll('.reveal');
 var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible')}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
