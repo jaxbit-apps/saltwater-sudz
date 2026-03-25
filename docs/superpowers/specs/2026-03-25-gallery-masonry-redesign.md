@@ -14,17 +14,19 @@ Replace the current before/after placeholder gallery with a CSS masonry grid of 
 
 ### Hero Section
 
-Keep the existing hero structure. Update copy only:
+Keep the existing hero structure. Update copy:
 
 - **Tagline**: "See the Results" (unchanged)
 - **Title**: "Our Work" (unchanged)
-- **Subtitle**: "Real results from Saltwater Sudz customers across the Lowcountry. Every vehicle gets meticulous attention to detail."
+- **Subtitle**: Changed from "Before and after transformations from real Saltwater Sudz customers..." to "Real results from Saltwater Sudz customers across the Lowcountry. Every vehicle gets meticulous attention to detail."
 - **Meta tags**: Update `<title>`, `<meta description>`, OG tags, and Twitter tags to remove "Before & After" language
 - **Schema.org JSON-LD**: Update description to remove "Before and after" phrasing
 
 ### Masonry Grid
 
 Replaces the entire `.gallery-grid` section (lines 219-331 of current `docs/gallery.html`).
+
+**Remove old CSS**: Delete all `.gallery-grid`, `.gallery-item`, `.gallery-pair`, `.gallery-before`, `.gallery-after`, `.gallery-label`, `.gallery-caption` rules (lines 92-108) and their responsive overrides.
 
 **CSS approach**: Uses `column-count` / `columns` property.
 
@@ -63,6 +65,8 @@ Replaces the entire `.gallery-grid` section (lines 219-331 of current `docs/gall
 
 **Scroll reveal**: Each item gets the existing `.reveal` class with staggered delays (`.reveal-d1`, `.reveal-d2`, `.reveal-d3` cycling).
 
+**Column ordering note**: CSS `column-count` fills top-to-bottom per column, not left-to-right by row. This is standard masonry behavior and acceptable for a portfolio gallery where images have no sequential relationship.
+
 ### Section Header
 
 Replace the "Before & After / Transformations" header text:
@@ -73,7 +77,13 @@ Replace the "Before & After / Transformations" header text:
 
 ### Images (13 total)
 
-Copied from `Images/` to `docs/images/` for serving:
+Copied from `Images/` to `docs/images/` for serving.
+
+**Image optimization (required)**: The source PNGs are 8-10 MB each (~114 MB total), which is unusable on mobile. During the copy step, convert all images to optimized JPEG at quality 80 using `sips` (macOS built-in). Target: each image under 500 KB. This brings the total page weight to a reasonable ~5-7 MB.
+
+**Naming convention**: Rename to web-friendly filenames preserving the correct extension: `gallery-01.jpg`, `gallery-02.jpg`, etc. All output files will be `.jpg` since we're converting to JPEG.
+
+**Image ordering**: Implementer's discretion to balance portrait and landscape images visually across columns.
 
 | Source filename | Description |
 |---|---|
@@ -91,9 +101,10 @@ Copied from `Images/` to `docs/images/` for serving:
 | exterior.jpeg | Exterior detail shot (landscape) |
 | Interior.jpeg | Interior detailing action shot (landscape) |
 
-Images will be renamed to web-friendly filenames when copied (e.g., `gallery-01.png`, `gallery-02.png`, etc.) to avoid spaces and special characters in URLs.
-
-Each `<img>` tag gets a descriptive `alt` attribute and `loading="lazy"`.
+Each `<img>` tag gets:
+- Descriptive `alt` attribute
+- `loading="lazy"`
+- Explicit `width` and `height` attributes (measured from the optimized files) to prevent layout shift (CLS)
 
 ### Lightbox
 
@@ -101,10 +112,12 @@ Vanilla JS, no dependencies. Behavior:
 
 - **Open**: Click any gallery image -> overlay appears with full-size image
 - **Overlay**: `position: fixed`, `inset: 0`, `background: rgba(0,0,0,0.9)`, `z-index: 2000`
-- **Image**: Centered via flexbox, `max-width: 90vw`, `max-height: 90vh`, `object-fit: contain`
-- **Close**: Click anywhere on overlay, or press Escape key
+- **Image**: Centered via flexbox, `max-width: 90vw`, `max-height: 90vh`, `object-fit: contain`. No `loading="lazy"` on the lightbox image (it's shown on demand).
+- **Close**: Click anywhere on overlay, press Escape key, or click visible X button in top-right corner
 - **No prev/next navigation** - keeps it simple
 - **Body scroll lock**: `overflow: hidden` on `<body>` while lightbox is open
+- **Accessibility**: Lightbox div gets `role="dialog"`, `aria-modal="true"`, `aria-label="Image viewer"`. Focus returns to the triggering image on close.
+- **DOM placement**: Lightbox `<div>` placed just before `</body>`, outside all sections, to avoid stacking context issues.
 
 ```css
 .lightbox {
@@ -126,23 +139,41 @@ Vanilla JS, no dependencies. Behavior:
   object-fit: contain;
   border-radius: var(--radius-md);
 }
+.lightbox__close {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+}
 ```
 
-JS (~20 lines, inline in existing `<script>` block):
+**Lightbox CSS** goes in the existing `<style>` block. **Lightbox JS** (~25 lines) goes in the existing `<script>` block.
 
+JS behavior:
 - Add click listeners to all `.gallery-masonry__item img` elements
-- On click: set lightbox image `src`, add `.active` class, lock body scroll
-- On overlay click or Escape: remove `.active`, unlock body scroll
+- On click: store reference to triggering element, set lightbox image `src`, add `.active` class, lock body scroll
+- On overlay click, X button click, or Escape: remove `.active`, unlock body scroll, return focus to triggering element
+
+## Unchanged Sections
+
+- CTA banner section ("Want These Results for Your Vehicle?") and surrounding waves - no changes
+- Footer - no changes
+- Header/nav - no changes
 
 ## Files Changed
 
-1. **`docs/gallery.html`** - Rewrite gallery section CSS, HTML, and JS
-2. **`design/approved/gallery.html`** - Mirror the same changes
-3. **`docs/images/`** - Copy and rename 13 images from `Images/`
+1. **`docs/gallery.html`** - Rewrite gallery section: remove old before/after CSS/HTML, add masonry CSS/HTML, add lightbox CSS/HTML/JS, update hero copy and meta tags
+2. **`design/approved/gallery.html`** - Make identical to the updated `docs/gallery.html`
+3. **`docs/images/`** - Copy, optimize (JPEG quality 80 via `sips`), and rename 13 images from `Images/`
 
 ## Out of Scope
 
-- Image optimization/compression (can be done later)
 - Filtering/categories
 - Prev/next navigation in lightbox
 - Ryan's headshot (separate task)
+- Full focus trapping in lightbox (basic accessibility included; full keyboard trap deferred)
