@@ -3,8 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gallery | Saltwater Sudz LLC - Before &amp; After Mobile Detailing Bluffton SC</title>
-<meta name="description" content="See before and after results from Saltwater Sudz mobile car detailing in Bluffton, SC. Exterior, interior, and full detail transformations across the Lowcountry.">
+<title>Gallery | Saltwater Sudz LLC - Mobile Detailing Portfolio Bluffton SC</title>
+<meta name="description" content="See real results from Saltwater Sudz mobile car detailing in Bluffton, SC. Exterior, interior, and full detail work across the Lowcountry.">
+<link rel="canonical" href="https://saltwatersudzllc.com/gallery">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gallery | Saltwater Sudz LLC - Mobile Detailing Portfolio Bluffton SC">
+<meta property="og:description" content="See real results from Saltwater Sudz mobile car detailing in Bluffton, SC. Exterior, interior, and full detail work.">
+<meta property="og:url" content="https://saltwatersudzllc.com/gallery">
+<meta property="og:site_name" content="Saltwater Sudz LLC">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gallery | Saltwater Sudz LLC - Detailing Portfolio">
+<meta name="twitter:description" content="See real results from Saltwater Sudz mobile car detailing in Bluffton, SC.">
+<meta name="geo.region" content="US-SC">
+<meta name="geo.placename" content="Bluffton">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,6 +52,8 @@ a{text-decoration:none}
 .header-inner{max-width:var(--wide-size);margin:0 auto;padding:0 var(--space-md);display:flex;align-items:center;justify-content:space-between;height:72px}
 .logo{font-family:var(--font-heading);font-size:1.35rem;font-weight:800;color:var(--navy);letter-spacing:-0.02em;text-decoration:none}
 .logo span{color:var(--cta-bg)}
+.logo img{height:48px;width:auto;display:block}
+.footer-brand .logo img{height:36px}
 .nav-links{display:flex;align-items:center;gap:var(--space-lg);list-style:none}
 .nav-links a{font-family:var(--font-heading);font-size:0.88rem;font-weight:500;color:var(--text-body);text-decoration:none;transition:color 0.25s ease}
 .nav-links a:hover,.nav-links a.active{color:var(--cta-bg)}
@@ -75,23 +89,17 @@ a{text-decoration:none}
 .section{padding:var(--section-gap) 0}
 .section--alt{background-color:var(--bg-secondary)}
 
-/* GALLERY GRID */
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg)}
-.gallery-item{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--card-shadow);transition:transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94),box-shadow 0.35s ease}
-.gallery-item:hover{transform:translateY(-4px);box-shadow:var(--card-shadow-hover)}
-.gallery-pair{display:grid;grid-template-columns:1fr 1fr;gap:0}
-.gallery-before,.gallery-after{height:220px;display:flex;align-items:center;justify-content:center;position:relative}
-.gallery-before{background:linear-gradient(135deg,#4A6274,#2D3436)}
-.gallery-after{background:linear-gradient(135deg,var(--cta-bg),#00A5CF)}
-.gallery-label{
-  font-family:var(--font-heading);font-size:0.72rem;font-weight:600;
-  letter-spacing:0.15em;text-transform:uppercase;color:#FFFFFF;
-  background:rgba(0,0,0,0.3);backdrop-filter:blur(8px);
-  padding:6px 14px;border-radius:var(--radius-sm);
-}
-.gallery-caption{padding:var(--space-md);background:var(--bg-secondary)}
-.gallery-caption h3{font-family:var(--font-heading);font-size:0.95rem;font-weight:600;color:var(--text-primary);margin-bottom:4px}
-.gallery-caption p{font-size:0.8rem;color:var(--text-muted);line-height:1.4}
+/* MASONRY GALLERY */
+.gallery-masonry{columns:3;column-gap:var(--space-md)}
+.gallery-masonry__item{break-inside:avoid;margin-bottom:var(--space-md);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--card-shadow);cursor:pointer;transition:transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94),box-shadow 0.35s ease}
+.gallery-masonry__item:hover{transform:translateY(-4px);box-shadow:var(--card-shadow-hover)}
+.gallery-masonry__item img{width:100%;height:auto;display:block}
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:2000;align-items:center;justify-content:center;cursor:pointer}
+.lightbox.active{display:flex}
+.lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:var(--radius-md);cursor:default}
+.lightbox__close{position:absolute;top:var(--space-md);right:var(--space-md);color:#fff;font-size:2rem;cursor:pointer;background:none;border:none;line-height:1;padding:8px}
+.lightbox__close:hover{opacity:0.7}
 
 /* CTA BANNER */
 .cta-banner{background:linear-gradient(135deg,var(--navy) 0%,#142E54 100%);border-radius:var(--radius-xl);padding:var(--space-xl);text-align:center;position:relative;overflow:hidden}
@@ -134,27 +142,41 @@ a{text-decoration:none}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @keyframes floatGentle{0%,100%{transform:translate(0,0)}33%{transform:translate(5px,-8px)}66%{transform:translate(-3px,5px)}}
 
-@media(max-width:1024px){.gallery-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:1024px){.gallery-masonry{columns:2}.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){
   .nav-links{display:none}
   .nav-toggle{display:flex}
   .nav-links.open{display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:#FFFFFF;padding:var(--space-md);border-bottom:1px solid var(--divider);box-shadow:0 8px 24px rgba(11,29,59,0.08);gap:var(--space-sm)}
-  .gallery-grid{grid-template-columns:1fr}
-  .gallery-before,.gallery-after{height:180px}
+  .gallery-masonry{columns:1}
   .footer-grid{grid-template-columns:1fr;gap:var(--space-lg)}
   .footer-bottom{flex-direction:column;align-items:flex-start}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "Saltwater Sudz Detailing Gallery",
+  "description": "Portfolio of mobile car detailing work by Saltwater Sudz in Bluffton, SC.",
+  "url": "https://saltwatersudzllc.com/gallery",
+  "creator": {
+    "@type": "AutoRepair",
+    "name": "Saltwater Sudz LLC",
+    "telephone": "+18039840245",
+    "url": "https://saltwatersudzllc.com/"
+  }
+}
+</script>
 </head>
 <body>
 
 <!-- HEADER -->
 <header class="site-header" id="site-header">
   <div class="header-inner">
-    <a href="index.html" class="logo">Saltwater <span>Sudz</span></a>
+    <a href="homepage.html" class="logo"><img src="images/saltwater-sudz-logo.png" alt="Saltwater Sudz - Mobile Detailing"></a>
     <nav>
       <ul class="nav-links" id="nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="homepage.html">Home</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="service-area.html">Service Areas</a></li>
@@ -173,7 +195,7 @@ a{text-decoration:none}
   <div class="hero-content">
     <p class="hero-tagline">See the Results</p>
     <h1 class="hero-title">Our Work</h1>
-    <p class="hero-subtitle">Before and after transformations from real Saltwater Sudz customers across the Lowcountry. Every vehicle gets the same meticulous attention to detail.</p>
+    <p class="hero-subtitle">Real results from Saltwater Sudz customers across the Lowcountry. Every vehicle gets meticulous attention to detail.</p>
   </div>
 </section>
 
@@ -184,119 +206,25 @@ a{text-decoration:none}
   </svg>
 </div>
 
-<!-- =============================================
-     GALLERY GRID
-     ============================================= -->
 <section class="section">
   <div class="wide-width">
-    <p style="font-family:var(--font-heading);font-size:0.72rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--cta-bg);text-align:center;margin-bottom:var(--space-sm);" class="reveal">Before &amp; After</p>
-    <h2 style="font-family:var(--font-heading);font-size:clamp(1.6rem,3vw,2.441rem);font-weight:700;line-height:1.15;color:var(--text-primary);text-align:center;margin-bottom:var(--space-md);text-wrap:balance;" class="reveal">Transformations</h2>
-    <p style="font-family:var(--font-body);font-size:1rem;color:var(--text-muted);text-align:center;max-width:55ch;margin:0 auto var(--space-xl);text-wrap:pretty;" class="reveal">Each gallery item below is a placeholder for real before-and-after photos. Ryan -- replace these gradient blocks with actual images of your work.</p>
+    <p style="font-family:var(--font-heading);font-size:0.72rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--cta-bg);text-align:center;margin-bottom:var(--space-sm);" class="reveal">Portfolio</p>
+    <h2 style="font-family:var(--font-heading);font-size:clamp(1.6rem,3vw,2.441rem);font-weight:700;line-height:1.15;color:var(--text-primary);text-align:center;margin-bottom:var(--space-xl);text-wrap:balance;" class="reveal">Recent Work</h2>
 
-    <div class="gallery-grid">
-
-      <!-- Gallery Item 1 -->
-      <!-- INSERT REAL PHOTO: Exterior detail before and after -->
-      <div class="gallery-item reveal reveal-d1" role="img" aria-label="Exterior detail before and after - Saltwater Sudz mobile detailing Bluffton SC">
-        <div class="gallery-pair">
-          <div class="gallery-before" loading="lazy">
-            <span class="gallery-label">Before</span>
-          </div>
-          <div class="gallery-after" loading="lazy">
-            <span class="gallery-label">After</span>
-          </div>
-        </div>
-        <div class="gallery-caption">
-          <h3>Exterior Detail</h3>
-          <p>Full exterior wash, clay bar, and hydrophobic finish -- Bluffton, SC</p>
-        </div>
-      </div>
-
-      <!-- Gallery Item 2 -->
-      <!-- INSERT REAL PHOTO: Interior detail before and after -->
-      <div class="gallery-item reveal reveal-d2" role="img" aria-label="Interior detail before and after - Saltwater Sudz mobile detailing Bluffton SC">
-        <div class="gallery-pair">
-          <div class="gallery-before" style="background:linear-gradient(135deg,#5A6872,#2D3436)" loading="lazy">
-            <span class="gallery-label">Before</span>
-          </div>
-          <div class="gallery-after" style="background:linear-gradient(135deg,var(--navy),#1A3A5C)" loading="lazy">
-            <span class="gallery-label">After</span>
-          </div>
-        </div>
-        <div class="gallery-caption">
-          <h3>Interior Detail</h3>
-          <p>Deep vacuum, steam clean, and leather conditioning -- Hilton Head Island, SC</p>
-        </div>
-      </div>
-
-      <!-- Gallery Item 3 -->
-      <!-- INSERT REAL PHOTO: Full detail before and after -->
-      <div class="gallery-item reveal reveal-d3" role="img" aria-label="Full detail before and after - Saltwater Sudz mobile detailing Bluffton SC">
-        <div class="gallery-pair">
-          <div class="gallery-before" style="background:linear-gradient(135deg,#3D5A6E,#1A2A3A)" loading="lazy">
-            <span class="gallery-label">Before</span>
-          </div>
-          <div class="gallery-after" style="background:linear-gradient(135deg,#142E54,var(--cta-bg))" loading="lazy">
-            <span class="gallery-label">After</span>
-          </div>
-        </div>
-        <div class="gallery-caption">
-          <h3>Full Detail</h3>
-          <p>Complete interior and exterior transformation -- Okatie, SC</p>
-        </div>
-      </div>
-
-      <!-- Gallery Item 4 -->
-      <!-- INSERT REAL PHOTO: Wheel and tire cleaning before and after -->
-      <div class="gallery-item reveal" role="img" aria-label="Wheel cleaning before and after - Saltwater Sudz mobile detailing Bluffton SC">
-        <div class="gallery-pair">
-          <div class="gallery-before" style="background:linear-gradient(135deg,#4A6274,#2D3436)" loading="lazy">
-            <span class="gallery-label">Before</span>
-          </div>
-          <div class="gallery-after" style="background:linear-gradient(135deg,var(--cta-bg),#00A5CF)" loading="lazy">
-            <span class="gallery-label">After</span>
-          </div>
-        </div>
-        <div class="gallery-caption">
-          <h3>Wheel &amp; Tire Detail</h3>
-          <p>Wheel cleaning, tire shine, and wheel well treatment -- Beaufort, SC</p>
-        </div>
-      </div>
-
-      <!-- Gallery Item 5 -->
-      <!-- INSERT REAL PHOTO: Carpet shampoo before and after -->
-      <div class="gallery-item reveal reveal-d1" role="img" aria-label="Carpet shampoo before and after - Saltwater Sudz mobile detailing Bluffton SC">
-        <div class="gallery-pair">
-          <div class="gallery-before" style="background:linear-gradient(135deg,#5A6872,#3D5A6E)" loading="lazy">
-            <span class="gallery-label">Before</span>
-          </div>
-          <div class="gallery-after" style="background:linear-gradient(135deg,#1A3A5C,var(--navy))" loading="lazy">
-            <span class="gallery-label">After</span>
-          </div>
-        </div>
-        <div class="gallery-caption">
-          <h3>Carpet Shampoo</h3>
-          <p>Deep carpet shampoo and conditioning -- Sun City, SC</p>
-        </div>
-      </div>
-
-      <!-- Gallery Item 6 -->
-      <!-- INSERT REAL PHOTO: Trim restoration before and after -->
-      <div class="gallery-item reveal reveal-d2" role="img" aria-label="Trim restoration before and after - Saltwater Sudz mobile detailing Bluffton SC">
-        <div class="gallery-pair">
-          <div class="gallery-before" style="background:linear-gradient(135deg,#4A6274,#2D3436)" loading="lazy">
-            <span class="gallery-label">Before</span>
-          </div>
-          <div class="gallery-after" style="background:linear-gradient(135deg,#142E54,#00A5CF)" loading="lazy">
-            <span class="gallery-label">After</span>
-          </div>
-        </div>
-        <div class="gallery-caption">
-          <h3>Trim Restoration</h3>
-          <p>Faded trim restored to factory finish -- Palmetto Bluff</p>
-        </div>
-      </div>
-
+    <div class="gallery-masonry">
+      <div class="gallery-masonry__item reveal"><img src="images/gallery-01.jpg" alt="White BMW X5 freshly detailed in Bluffton SC driveway" width="800" height="1739" loading="lazy" tabindex="0" role="button"></div>
+      <div class="gallery-masonry__item reveal reveal-d1"><img src="images/gallery-02.jpg" alt="Exterior detail in progress - brush cleaning BMW grille" width="1200" height="800" loading="lazy" tabindex="0" role="button"></div>
+      <div class="gallery-masonry__item reveal reveal-d2"><img src="images/gallery-03.jpg" alt="Black truck detailed by Saltwater Sudz" width="800" height="1739" loading="lazy" tabindex="0" role="button"></div>
+      <div class="gallery-masonry__item reveal reveal-d3"><img src="images/gallery-04.jpg" alt="Black Porsche 911 Turbo freshly detailed" width="800" height="1739" loading="lazy" tabindex="0" role="button"></div>
+      <div class="gallery-masonry__item reveal"><img src="images/gallery-05.jpg" alt="Interior detailing - dashboard cleaning and conditioning" width="1200" height="801" loading="lazy" tabindex="0" role="button"></div>
+      <div class="gallery-masonry__item reveal reveal-d1"><img src="images/gallery-06.jpg" alt="Dark BMW X3 detailed in driveway" width="800" height="1739" loading="lazy" tabindex="0" role="button"></div>
+      <div class="gallery-masonry__item reveal reveal-d2"><img src="images/gallery-07.jpg" alt="Classic VW Jetta after full exterior detail" width="800" height="1739" loading="lazy" tabindex="0" role="button"></div>
+      <div class="gallery-masonry__item reveal reveal-d3"><img src="images/gallery-08.jpg" alt="Exterior vehicle detail - full wash and finish" width="1200" height="800" loading="lazy" tabindex="0" role="button"></div>
+      <div class="gallery-masonry__item reveal"><img src="images/gallery-09.jpg" alt="Ford truck interior fully cleaned and conditioned" width="800" height="1739" loading="lazy" tabindex="0" role="button"></div>
+      <div class="gallery-masonry__item reveal reveal-d1"><img src="images/gallery-10.jpg" alt="Vehicle freshly detailed by Saltwater Sudz" width="800" height="1739" loading="lazy" tabindex="0" role="button"></div>
+      <div class="gallery-masonry__item reveal reveal-d2"><img src="images/gallery-11.jpg" alt="Detailed vehicle - Saltwater Sudz mobile detailing" width="800" height="1739" loading="lazy" tabindex="0" role="button"></div>
+      <div class="gallery-masonry__item reveal reveal-d3"><img src="images/gallery-12.jpg" alt="Vehicle detail completed - Lowcountry SC" width="800" height="1739" loading="lazy" tabindex="0" role="button"></div>
+      <div class="gallery-masonry__item reveal"><img src="images/gallery-13.jpg" alt="Mobile detailing results - Saltwater Sudz Bluffton" width="800" height="1739" loading="lazy" tabindex="0" role="button"></div>
     </div>
   </div>
 </section>
@@ -313,7 +241,7 @@ a{text-decoration:none}
   <div class="wide-width">
     <div class="cta-banner reveal">
       <h3>Want These Results for Your Vehicle?</h3>
-      <p>Book your mobile detail with Saltwater Sudz and see the transformation for yourself. We come to you in Bluffton, Hilton Head, and across the Lowcountry.</p>
+      <p>Book your mobile detail with Saltwater Sudz and see the transformation for yourself. We come to you in Bluffton, Hardeeville, and across the Lowcountry.</p>
       <a href="contact.html" class="btn btn--primary">Book Your Detail</a>
     </div>
   </div>
@@ -331,13 +259,13 @@ a{text-decoration:none}
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo">Saltwater <span>Sudz</span></a>
+        <a href="homepage.html" class="logo"><img src="images/saltwater-sudz-logo.png" alt="Saltwater Sudz - Mobile Detailing"></a>
         <p>Premium mobile car detailing in Bluffton, SC. Locally owned and operated by Ryan Haag.</p>
-        <p style="font-size:0.85rem;">Bluffton, SC<br>Phone: <a href="tel:XXX-XXX-XXXX" style="color:#3399DD;text-decoration:none;">XXX-XXX-XXXX</a></p>
+        <p style="font-size:0.85rem;">Bluffton, SC<br>Phone: <a href="tel:8039840245" style="color:#3399DD;text-decoration:none;">(803) 984-0245</a></p>
       </div>
-      <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Navigation</h4><ul><li><a href="homepage.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html#exterior">Exterior Detail</a></li><li><a href="services.html#interior">Interior Detail</a></li><li><a href="services.html#full-detail">Full Detail</a></li><li><a href="services.html#upgrades">Upgrades</a></li></ul></div>
-      <div class="footer-col"><h4>Service Areas</h4><ul><li><a href="service-area.html#bluffton">Bluffton</a></li><li><a href="service-area.html#hilton-head">Hilton Head Island</a></li><li><a href="service-area.html#beaufort">Beaufort</a></li><li><a href="service-area.html">View All Areas</a></li></ul></div>
+      <div class="footer-col"><h4>Service Areas</h4><ul><li><a href="service-area.html#bluffton">Bluffton</a></li><li><a href="service-area.html#hardeeville">Hardeeville</a></li><li><a href="service-area.html#okatie">Okatie</a></li><li><a href="service-area.html">View All Areas</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2026 Saltwater Sudz LLC. All rights reserved.</p>
@@ -345,13 +273,19 @@ a{text-decoration:none}
         <span class="payment-icon">Visa</span><span class="payment-icon">MC</span><span class="payment-icon">Amex</span><span class="payment-icon">Discover</span><span class="payment-icon">JCB</span><span class="payment-icon">Apple Pay</span><span class="payment-icon">Google Pay</span><span class="payment-icon">CashApp</span>
       </div>
       <div class="footer-social">
-        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-        <a href="#" aria-label="Google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></a>
+        <a href="https://www.facebook.com/saltwatersudzllc" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/saltwatersudzllc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://autodetailingbluffton.com" aria-label="Google"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></a>
       </div>
     </div>
   </div>
 </footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lightbox__close" aria-label="Close">&times;</button>
+  <img src="" alt="">
+</div>
 
 <script>
 document.getElementById('nav-toggle').addEventListener('click',function(){document.getElementById('nav-links').classList.toggle('open')});
@@ -359,6 +293,31 @@ window.addEventListener('scroll',function(){var h=document.getElementById('site-
 var revealElements=document.querySelectorAll('.reveal');
 var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible')}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 revealElements.forEach(function(el){observer.observe(el)});
+// Lightbox
+var lightbox=document.getElementById('lightbox');
+var lightboxImg=lightbox.querySelector('img');
+var lightboxClose=lightbox.querySelector('.lightbox__close');
+var triggerEl=null;
+document.querySelectorAll('.gallery-masonry__item img').forEach(function(img){
+  img.addEventListener('click',function(){
+    triggerEl=this;
+    lightboxImg.src=this.src;
+    lightboxImg.alt=this.alt;
+    lightbox.classList.add('active');
+    document.body.style.overflow='hidden';
+  });
+  img.addEventListener('keydown',function(e){
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();this.click();}
+  });
+});
+function closeLightbox(){
+  lightbox.classList.remove('active');
+  document.body.style.overflow='';
+  if(triggerEl){triggerEl.focus();triggerEl=null;}
+}
+lightbox.addEventListener('click',function(e){if(e.target===lightbox)closeLightbox()});
+lightboxClose.addEventListener('click',closeLightbox);
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lightbox.classList.contains('active'))closeLightbox()});
 </script>
 </body>
 </html>
